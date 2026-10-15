@@ -23,8 +23,11 @@ export default function OverviewPage() {
       <PageHeader eyebrow="Overview" title="CRISPRScreenBench-mini sweep">
         <p>
           {meta.n_trajectories} agent trajectories on {meta.n_tasks} verifiable pooled-CRISPR-screen analysis tasks, scored by
-          deterministic graders. {nBase} scripted baselines, {nSim} SIMULATED configs
-          {nReal ? `, ${nReal} REAL Gemini configs` : ""}. Every failure is labeled by rules
+          deterministic graders:{" "}
+          {[nReal && `${nReal} REAL Gemini configs`, nSim && `${nSim} SIMULATED configs`, nBase && `${nBase} scripted baselines`]
+            .filter(Boolean)
+            .join(", ")}
+          . Every failure is labeled by rules
           {meta.judge.n_labeled ? " and an LLM judge" : ""}; see{" "}
           <Link href="/failures" className="text-accent underline-offset-2 hover:underline">
             why agents fail
@@ -46,11 +49,11 @@ export default function OverviewPage() {
       <div className="mb-4 grid grid-cols-2 gap-3 lg:grid-cols-5">
         <Stat label="Trajectories" value={meta.n_trajectories} sub={`${meta.n_configs} configs × ${meta.n_tasks} tasks`} />
         <Stat label="Failures labeled" value={meta.n_failures} sub={`${pct(meta.n_failures / meta.n_trajectories)} of runs`} />
-        <Stat
-          label="Rule label ↔ injected fault"
-          value={rvi.n ? pct(rvi.agree / rvi.n) : "—"}
-          sub={`${rvi.agree}/${rvi.n} SIMULATED failures`}
-        />
+        {rvi.n ? (
+          <Stat label="Rule label ↔ injected fault" value={pct(rvi.agree / rvi.n)} sub={`${rvi.agree}/${rvi.n} SIMULATED failures`} />
+        ) : (
+          <Stat label="Judge ↔ rule agreement" value={jvr.n ? pct(jvr.agree / jvr.n) : "pending"} sub={jvr.n ? `${jvr.agree}/${jvr.n} failures` : "judge not run yet"} />
+        )}
         <Stat
           label="Judge accuracy (gold)"
           value={gold.judge_n ? pct(gold.judge_correct / gold.judge_n) : "pending"}
@@ -107,11 +110,15 @@ function JudgeAgreement({
   judgeModels: string[];
 }) {
   const rows = [
-    {
-      k: "Rule labels vs injected fault",
-      v: rvi.n ? `${rvi.agree}/${rvi.n}` : "—",
-      note: "Sanity check only: the rules were written knowing the mistake catalog.",
-    },
+    ...(rvi.n
+      ? [
+          {
+            k: "Rule labels vs injected fault",
+            v: `${rvi.agree}/${rvi.n}`,
+            note: "Sanity check only: the rules were written knowing the mistake catalog.",
+          },
+        ]
+      : []),
     {
       k: "Rule labels vs gold",
       v: gold.n ? `${gold.rule_correct}/${gold.n}` : "—",

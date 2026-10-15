@@ -75,12 +75,25 @@ def _config_meta(cid: str, sample: dict) -> dict:
             "description": f"REAL run: Gemini ({sample['model']}) via function calling, harness {sample['harness']}."}
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> None:
+    import argparse
+
+    ap = argparse.ArgumentParser(description="Export runs to web/public/data")
+    ap.add_argument("--include-simulated", action="store_true",
+                    help="keep SIMULATED configs even when REAL runs exist (default: drop them)")
+    args = ap.parse_args(argv)
+
     tasks = load_tasks()
     truth = json.loads((DATA_DIR / "truth.json").read_text())
     runs = _load_runs()
     if not runs:
         raise SystemExit("no runs found; run `python -m bench.run --sweep` first")
+    # Once REAL (Gemini) runs exist they replace the SIMULATED stand-ins on the site; the scripted
+    # baselines stay as reference points. SIMULATED runs remain in bench/runs for regeneration.
+    if any(t["kind"] == "REAL" for t in runs) and not args.include_simulated:
+        dropped = sum(t["kind"] == "SIMULATED" for t in runs)
+        runs = [t for t in runs if t["kind"] != "SIMULATED"]
+        print(f"REAL runs present: dropping {dropped} SIMULATED trajectories (use --include-simulated to keep)")
     judge_cache = json.loads(CACHE_PATH.read_text()) if CACHE_PATH.exists() else {}
     gold = json.loads(GOLD_PATH.read_text()) if GOLD_PATH.exists() else {"labels": []}
 

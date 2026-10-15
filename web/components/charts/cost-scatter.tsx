@@ -106,18 +106,22 @@ export function CostScatter({ configs }: { configs: ConfigRow[] }) {
         </ResponsiveContainer>
       </div>
       <figcaption className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted">
-        <span className="inline-flex items-center gap-1.5">
-          <svg width="12" height="12" aria-hidden>
-            <circle cx="6" cy="6" r="4.5" fill="var(--accent)" />
-          </svg>
-          REAL run
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <svg width="12" height="12" aria-hidden>
-            <circle cx="6" cy="6" r="4" fill="var(--surface)" stroke="var(--accent)" strokeWidth="2" />
-          </svg>
-          SIMULATED config
-        </span>
+        {pts.some((p) => p.kind === "REAL") && (
+          <span className="inline-flex items-center gap-1.5">
+            <svg width="12" height="12" aria-hidden>
+              <circle cx="6" cy="6" r="4.5" fill="var(--accent)" />
+            </svg>
+            REAL run
+          </span>
+        )}
+        {pts.some((p) => p.kind === "SIMULATED") && (
+          <span className="inline-flex items-center gap-1.5">
+            <svg width="12" height="12" aria-hidden>
+              <circle cx="6" cy="6" r="4" fill="var(--surface)" stroke="var(--accent)" strokeWidth="2" />
+            </svg>
+            SIMULATED config
+          </span>
+        )}
         <span className="inline-flex items-center gap-1.5">
           <svg width="18" height="8" aria-hidden>
             <line x1="0" y1="4" x2="18" y2="4" stroke="var(--border-strong)" strokeDasharray="4 3" />

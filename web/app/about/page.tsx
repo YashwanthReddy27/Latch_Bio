@@ -1,12 +1,13 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getMeta } from "@/lib/data";
+import { getConfigs, getMeta } from "@/lib/data";
 import { PageHeader } from "@/components/ui/primitives";
 
 export const metadata: Metadata = { title: "About" };
 
 export default function AboutPage() {
   const meta = getMeta();
+  const hasSim = getConfigs().some((c) => c.kind === "SIMULATED");
   return (
     <div className="max-w-3xl">
       <PageHeader eyebrow="About" title="Helix Trace in one page" />
@@ -44,8 +45,10 @@ export default function AboutPage() {
               TypeScript and held to identical verdicts by a shared fixture file.
             </li>
             <li>
-              <span className="text-ink">Harness.</span> A 25-step agent loop with a sandboxed Python tool. Scripted baselines, SIMULATED configs
-              (the correct pipeline with mistakes injected at controlled rates, all code really executed) and REAL Gemini runs.
+              <span className="text-ink">Harness.</span> A 25-step agent loop with a sandboxed Python tool. Scripted baselines
+              {hasSim
+                ? ", SIMULATED configs (the correct pipeline with mistakes injected at controlled rates, all code really executed) and REAL Gemini runs."
+                : " and REAL Gemini runs."}
             </li>
             <li>
               <span className="text-ink">Labels.</span> Rule-based signals plus an optional Gemini judge with a structured-output schema; both are
@@ -58,7 +61,7 @@ export default function AboutPage() {
           <h2 className="mb-1.5 text-[15px] font-semibold text-ink">What is real here</h2>
           <ul className="list-disc space-y-1 pl-5">
             <li>The screen data is synthetic. Gene symbols and pathway biology are realistic (MMR loss → resistance to an alkylator), but the numbers are planted.</li>
-            <li>SIMULATED configs are not models. Their decisions are scripted; their tokens and costs are estimates.</li>
+            {hasSim && <li>SIMULATED configs are not models. Their decisions are scripted; their tokens and costs are estimates.</li>}
             <li>
               {meta.n_real
                 ? `${meta.n_real} REAL runs (${meta.real_models.join(", ")}) are included.`
