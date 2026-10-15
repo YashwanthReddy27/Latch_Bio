@@ -135,7 +135,7 @@ export function CompareView({ labels }: { labels: Record<string, string> }) {
                   <div key={p} className="grid content-start gap-2">
                     <p className="text-2xs font-medium uppercase tracking-[0.06em] text-muted md:hidden">{p.toUpperCase()}</p>
                     {steps?.length ? (
-                      steps.map((s) => <StepCard key={s.i} step={s} marks={marks[s.i]} compact anchorPrefix={`${p}-step`} />)
+                      steps.map((s) => <StepCard key={s.i} step={s} marks={marks[s.i]} compact anchorPrefix={`${p}-step`} defaultOpen={!!marks[s.i]?.evidenceCategory} />)
                     ) : (
                       <p className="rounded border border-dashed border-border-strong px-3 py-3 text-xs text-muted">
                         No step at this stage{k === "qc_replicates" || k === "exclude_bad" || k === "normalize" || k === "fdr" ? ": skipped" : ""}.

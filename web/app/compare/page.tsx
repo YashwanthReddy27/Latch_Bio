@@ -11,10 +11,7 @@ export default function ComparePage() {
   return (
     <>
       <PageHeader eyebrow="Compare" title="Side-by-side trajectories">
-        <p>
-          Steps are aligned by reference-pipeline stage, so a skipped QC check or a different baseline shows up as a gap or a highlighted
-          stage rather than as a wall of text.
-        </p>
+        <p>Steps are aligned by pipeline stage, so skipped or different stages stand out.</p>
       </PageHeader>
       <Suspense fallback={<p className="text-ink-2">Loading…</p>}>
         <CompareView labels={labels} />

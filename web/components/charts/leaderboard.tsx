@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { ArrowDown, ArrowUp } from "lucide-react";
 import type { Category, ConfigRow } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
-import { compact, pct, secs, usd } from "@/lib/format";
+import { pct, usd } from "@/lib/format";
 import { CategoryTag, KindBadge } from "@/components/ui/primitives";
 
 type SortKey = "pass_rate" | "mean_cost" | "mean_tokens" | "mean_steps" | "mean_wall_s" | "n";
@@ -14,9 +14,6 @@ const COLS: { key: SortKey; label: string; title: string }[] = [
   { key: "pass_rate", label: "Pass rate (95% CI)", title: "Share of runs whose answer passed the deterministic grader. Wilson score interval." },
   { key: "n", label: "Runs", title: "Trajectories in the sweep (12 tasks × runs per task)" },
   { key: "mean_cost", label: "Mean cost", title: "Mean USD per trajectory. SIMULATED costs are estimated from text length and a price table." },
-  { key: "mean_tokens", label: "Mean tokens", title: "Input + output + thinking tokens per trajectory" },
-  { key: "mean_steps", label: "Steps", title: "Mean tool calls per trajectory (max 25)" },
-  { key: "mean_wall_s", label: "Wall time", title: "Mean wall-clock time per trajectory" },
 ];
 
 function topFailure(c: ConfigRow): Category | null {
@@ -35,7 +32,7 @@ export function Leaderboard({ configs }: { configs: ConfigRow[] }) {
 
   return (
     <div className="-mx-4 overflow-x-auto px-4">
-      <table className="w-full min-w-[760px] border-collapse text-left text-[13px]">
+      <table className="w-full min-w-[600px] border-collapse text-left text-[13px]">
         <caption className="sr-only">Leaderboard of model × harness configurations; click a column header to sort.</caption>
         <thead>
           <tr className="border-b border-border-strong text-2xs uppercase tracking-[0.06em] text-muted">
@@ -75,9 +72,6 @@ export function Leaderboard({ configs }: { configs: ConfigRow[] }) {
               </td>
               <td className="num py-2.5 pr-3 text-right text-ink-2">{c.n}</td>
               <td className="num py-2.5 pr-3 text-right">{c.kind === "BASELINE" ? <span className="text-muted">n/a</span> : usd(c.mean_cost)}</td>
-              <td className="num py-2.5 pr-3 text-right">{c.kind === "BASELINE" ? <span className="text-muted">n/a</span> : compact(c.mean_tokens)}</td>
-              <td className="num py-2.5 pr-3 text-right">{c.mean_steps.toFixed(1)}</td>
-              <td className="num py-2.5 pr-3 text-right">{secs(c.mean_wall_s)}</td>
               <td className="py-2.5">{c.n_pass === c.n ? <span className="text-xs text-muted">none</span> : <CategoryTag category={topFailure(c)} />}</td>
             </tr>
           ))}

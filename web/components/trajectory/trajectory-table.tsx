@@ -7,7 +7,7 @@ import { Download, GitCompare } from "lucide-react";
 import type { Category, ConfigRow, IndexRow } from "@/lib/types";
 import { CATEGORIES, CATEGORY_LABEL } from "@/lib/types";
 import { CategoryTag, KindBadge, PassChip, buttonClass } from "@/components/ui/primitives";
-import { compact, secs, usd } from "@/lib/format";
+import { secs, usd } from "@/lib/format";
 
 const PAGE = 50;
 
@@ -22,6 +22,8 @@ export function TrajectoryTable({ rows, configs, taskIds }: { rows: IndexRow[]; 
   const [selected, setSelected] = useState<string[]>([]);
   const [exporting, setExporting] = useState<{ done: number; total: number } | null>(null);
   const labelOf = useMemo(() => Object.fromEntries(configs.map((c) => [c.id, c.label])), [configs]);
+  const hasJudge = useMemo(() => rows.some((r) => r.judge_category), [rows]);
+  const [more, setMore] = useState(() => !!(params.get("kind") || params.get("disagree") || params.get("q")));
 
   const set = (k: keyof Filters, v: string) => {
     const next = new URLSearchParams(params.toString());
@@ -81,14 +83,20 @@ export function TrajectoryTable({ rows, configs, taskIds }: { rows: IndexRow[]; 
 
   return (
     <div>
-      <div className="grid gap-2 border-b border-border pb-3 sm:grid-cols-2 lg:grid-cols-[repeat(6,minmax(0,1fr))_minmax(0,1.4fr)]">
+      <div className="grid grid-cols-2 gap-2 lg:grid-cols-[repeat(4,minmax(0,1fr))_auto]">
         <Select label="Config" value={filters.config} onChange={(v) => set("config", v)} options={configs.map((c) => [c.id, c.label])} />
         <Select label="Task" value={filters.task} onChange={(v) => set("task", v)} options={taskIds.map((t) => [t, t])} />
         <Select label="Outcome" value={filters.outcome} onChange={(v) => set("outcome", v)} options={[["pass", "Passed"], ["fail", "Failed"]]} />
         <Select label="Failure category" value={filters.category} onChange={(v) => set("category", v)} options={CATEGORIES.map((c) => [c, CATEGORY_LABEL[c]])} />
+        <button type="button" onClick={() => setMore((m) => !m)} aria-expanded={more} className={`${buttonClass("ghost")} col-span-2 self-end lg:col-span-1`}>
+          {more ? "Fewer filters" : "More filters"}
+        </button>
+      </div>
+      {more && (
+      <div className="mt-2 grid grid-cols-2 gap-2 lg:grid-cols-4">
         <Select label="Kind" value={filters.kind} onChange={(v) => set("kind", v)} options={[["REAL", "REAL"], ["SIMULATED", "SIMULATED"], ["BASELINE", "BASELINE"]]} />
-        <Select label="Judge vs rule" value={filters.disagree} onChange={(v) => set("disagree", v)} options={[["1", "Disagreements only"]]} />
-        <label className="grid gap-1 text-2xs font-medium uppercase tracking-[0.06em] text-muted">
+        {hasJudge && <Select label="Judge vs rule" value={filters.disagree} onChange={(v) => set("disagree", v)} options={[["1", "Disagreements only"]]} />}
+        <label className="col-span-2 grid gap-1 text-2xs font-medium uppercase tracking-[0.06em] text-muted">
           Search
           <input
             type="search"
@@ -99,6 +107,8 @@ export function TrajectoryTable({ rows, configs, taskIds }: { rows: IndexRow[]; 
           />
         </label>
       </div>
+      )}
+      <div className="border-b border-border pt-1" />
 
       <div className="flex flex-wrap items-center gap-2 py-3">
         <p className="num text-xs text-ink-2" aria-live="polite">
@@ -126,7 +136,7 @@ export function TrajectoryTable({ rows, configs, taskIds }: { rows: IndexRow[]; 
       </div>
 
       <div className="-mx-4 overflow-x-auto px-4">
-        <table className="w-full min-w-[880px] text-[13px]">
+        <table className="w-full min-w-[760px] text-[13px]">
           <caption className="sr-only">Trajectories matching the current filters</caption>
           <thead>
             <tr className="border-b border-border-strong text-left text-2xs uppercase tracking-[0.06em] text-muted">
@@ -135,10 +145,9 @@ export function TrajectoryTable({ rows, configs, taskIds }: { rows: IndexRow[]; 
               <th scope="col" className="py-2 pr-3 font-medium">Task</th>
               <th scope="col" className="py-2 pr-3 font-medium">Result</th>
               <th scope="col" className="py-2 pr-3 font-medium">Rule label</th>
-              <th scope="col" className="py-2 pr-3 font-medium">Judge label</th>
+              {hasJudge && <th scope="col" className="py-2 pr-3 font-medium">Judge label</th>}
               <th scope="col" className="py-2 pr-3 text-right font-medium">Div. step</th>
               <th scope="col" className="py-2 pr-3 text-right font-medium">Steps</th>
-              <th scope="col" className="py-2 pr-3 text-right font-medium">Tokens</th>
               <th scope="col" className="py-2 pr-3 text-right font-medium">Cost</th>
               <th scope="col" className="py-2 text-right font-medium">Time</th>
             </tr>
@@ -167,7 +176,7 @@ export function TrajectoryTable({ rows, configs, taskIds }: { rows: IndexRow[]; 
                   <PassChip passed={r.passed} />
                 </td>
                 <td className="py-1.5 pr-3"><CategoryTag category={r.rule_category} /></td>
-                <td className="py-1.5 pr-3">
+                {hasJudge && <td className="py-1.5 pr-3">
                   {r.passed ? <span className="text-muted">—</span> : r.judge_category ? (
                     <span className="inline-flex items-center gap-1.5">
                       <CategoryTag category={r.judge_category as Category} />
@@ -176,17 +185,16 @@ export function TrajectoryTable({ rows, configs, taskIds }: { rows: IndexRow[]; 
                   ) : (
                     <span className="text-xs text-muted">pending</span>
                   )}
-                </td>
+                </td>}
                 <td className="num py-1.5 pr-3 text-right">{r.rule_first_div ?? "—"}</td>
                 <td className="num py-1.5 pr-3 text-right">{r.n_steps}</td>
-                <td className="num py-1.5 pr-3 text-right">{r.kind === "BASELINE" ? "—" : compact(r.tokens)}</td>
                 <td className="num py-1.5 pr-3 text-right">{r.kind === "BASELINE" ? "—" : usd(r.cost_usd)}</td>
                 <td className="num py-1.5 text-right">{secs(r.wall_s)}</td>
               </tr>
             ))}
             {!pageRows.length && (
               <tr>
-                <td colSpan={11} className="py-8 text-center text-ink-2">
+                <td colSpan={hasJudge ? 10 : 9} className="py-8 text-center text-ink-2">
                   No trajectories match these filters.
                 </td>
               </tr>

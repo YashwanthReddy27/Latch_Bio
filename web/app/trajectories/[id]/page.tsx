@@ -4,7 +4,8 @@ import type { Metadata } from "next";
 import { getConfigs, getIndex, getTasks, getTrajectory, listTrajectoryIds } from "@/lib/data";
 import { KindBadge, PassChip, buttonClass } from "@/components/ui/primitives";
 import { GraderPanel, LabelPanel } from "@/components/trajectory/panels";
-import { Timeline } from "@/components/trajectory/timeline";
+import { StepIndex, Timeline } from "@/components/trajectory/timeline";
+import { PageTabs } from "@/components/ui/tabs";
 import { CompareJump } from "@/components/trajectory/compare-jump";
 import { compact, secs, usd } from "@/lib/format";
 
@@ -68,10 +69,7 @@ export default function TrajectoryPage({ params }: { params: { id: string } }) {
           ))}
         </dl>
         {traj.kind === "SIMULATED" && (
-          <p className="mt-2 text-[11.5px] text-muted">
-            SIMULATED: the agent&apos;s decisions are scripted with injected mistakes; every code cell was really executed in the sandbox.
-            Token, cost and latency figures are estimates.
-          </p>
+          <p className="mt-2 text-[11.5px] text-muted">SIMULATED run: scripted decisions, real code execution, estimated tokens and cost.</p>
         )}
       </header>
 
@@ -79,16 +77,46 @@ export default function TrajectoryPage({ params }: { params: { id: string } }) {
         <div className="order-2 min-w-0 lg:order-1">
           <Timeline traj={traj} />
         </div>
-        <aside className="order-1 grid content-start gap-3 lg:sticky lg:top-16 lg:order-2 lg:max-h-[calc(100vh-5rem)] lg:overflow-auto">
-          <GraderPanel grade={traj.grade} />
-          <LabelPanel traj={traj} />
-          <section className="rounded border border-border bg-surface px-3 py-2.5" aria-label="Compare">
-            <h2 className="text-[13px] font-semibold">Compare on {traj.task_id}</h2>
-            <CompareJump current={traj.id} siblings={siblings} configLabels={configLabels} />
-            <a href={`/data/traj/${traj.id}.json`} download className={`${buttonClass("ghost")} mt-2 -ml-2.5`}>
-              Download raw JSON
-            </a>
-          </section>
+        <aside className="order-1 lg:sticky lg:top-16 lg:order-2 lg:max-h-[calc(100vh-5rem)] lg:overflow-auto">
+          <PageTabs
+            label="Run details"
+            syncHash={false}
+            dense
+            items={[
+              {
+                value: "result",
+                label: "Result",
+                content: (
+                  <div className="grid gap-3">
+                    <GraderPanel grade={traj.grade} />
+                    <LabelPanel traj={traj} />
+                  </div>
+                ),
+              },
+              {
+                value: "steps",
+                label: "Steps",
+                content: (
+                  <section className="rounded border border-border bg-surface p-2">
+                    <StepIndex traj={traj} />
+                  </section>
+                ),
+              },
+              {
+                value: "compare",
+                label: "Compare",
+                content: (
+                  <section className="rounded border border-border bg-surface px-3 py-2.5" aria-label="Compare">
+                    <p className="text-[12.5px] text-ink-2">Diff this run against another run on {traj.task_id}.</p>
+                    <CompareJump current={traj.id} siblings={siblings} configLabels={configLabels} />
+                    <a href={`/data/traj/${traj.id}.json`} download className={`${buttonClass("ghost")} mt-2 -ml-2.5`}>
+                      Download raw JSON
+                    </a>
+                  </section>
+                ),
+              },
+            ]}
+          />
         </aside>
       </div>
     </>
