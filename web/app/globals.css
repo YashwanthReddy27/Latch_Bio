@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------------------------------------
+   Helix Trace tokens. Lab-notebook light theme by default; dark theme is its own set of steps.
+   One accent (deep teal). pass/fail/warn are reserved for state only.
+   Categorical slots (failure taxonomy) validated with the dataviz palette checker (CVD + contrast).
+------------------------------------------------------------------------------------------------ */
+:root {
+  color-scheme: light;
+  --bg: #f6f5ef;
+  --surface: #fcfbf7;
+  --surface-2: #efede5;
+  --surface-3: #e6e3d8;
+  --border: #dcd8cc;
+  --border-strong: #c3beaf;
+  --text: #191b1a;
+  --text-2: #484d49;
+  --muted: #6e736d;
+  --accent: #0f5e57;
+  --accent-hover: #0b4a44;
+  --accent-soft: #dcebe7;
+  --accent-ink: #ffffff;
+  --pass: #27704a;
+  --pass-soft: #e0efe5;
+  --fail: #b0402f;
+  --fail-soft: #f7e3df;
+  --warn: #8a5a00;
+  --warn-soft: #f5ead2;
+  --focus: #0f5e57;
+  --grid: #e4e1d6;
+  --code-bg: #f1efe7;
+  --hl-line: #fbe9b0;
+  --syn-kw: #7a3e9d;
+  --syn-str: #2f6f3e;
+  --syn-num: #a0522d;
+  --syn-com: #8a8f88;
+  --syn-fn: #0f5e57;
+  --syn-punct: #5b605b;
+
+  --cat-1: #2a78d6;
+  --cat-2: #eb6834;
+  --cat-3: #1baf7a;
+  --cat-4: #eda100;
+  --cat-5: #e87ba4;
+  --cat-6: #4a3aa7;
+
+  /* sequential teal for the pass-rate heatmap (light -> dark) */
+  --seq-0: #f1f4f1;
+  --seq-1: #cfe6e1;
+  --seq-2: #9fcdc4;
+  --seq-3: #5fa99d;
+  --seq-4: #2a8174;
+  --seq-5: #0f5e57;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #101312;
+    --surface: #161a19;
+    --surface-2: #1d2220;
+    --surface-3: #252b29;
+    --border: #2b322f;
+    --border-strong: #3c4541;
+    --text: #e6e8e3;
+    --text-2: #b4bab3;
+    --muted: #8a918a;
+    --accent: #5bb8a9;
+    --accent-hover: #7ccabd;
+    --accent-soft: #1b3330;
+    --accent-ink: #08201d;
+    --pass: #63bd84;
+    --pass-soft: #183024;
+    --fail: #e57b69;
+    --fail-soft: #3a1d18;
+    --warn: #d9a441;
+    --warn-soft: #33270f;
+    --focus: #7ccabd;
+    --grid: #252b29;
+    --code-bg: #131716;
+    --hl-line: #3d3313;
+  --syn-kw: #c79be6;
+  --syn-str: #9ccf8a;
+  --syn-num: #e5a074;
+  --syn-com: #737a73;
+  --syn-fn: #6cc2b3;
+  --syn-punct: #9aa19a;
+    --syn-kw: #c79be6;
+    --syn-str: #9ccf8a;
+    --syn-num: #e5a074;
+    --syn-com: #737a73;
+    --syn-fn: #6cc2b3;
+    --syn-punct: #9aa19a;
+    --cat-1: #3987e5;
+    --cat-2: #d95926;
+    --cat-3: #199e70;
+    --cat-4: #c98500;
+    --cat-5: #d55181;
+    --cat-6: #9085e9;
+    --seq-0: #1a1f1e;
+    --seq-1: #173a35;
+    --seq-2: #1d5850;
+    --seq-3: #26786c;
+    --seq-4: #3c9a8b;
+    --seq-5: #6cc2b3;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #101312;
+  --surface: #161a19;
+  --surface-2: #1d2220;
+  --surface-3: #252b29;
+  --border: #2b322f;
+  --border-strong: #3c4541;
+  --text: #e6e8e3;
+  --text-2: #b4bab3;
+  --muted: #8a918a;
+  --accent: #5bb8a9;
+  --accent-hover: #7ccabd;
+  --accent-soft: #1b3330;
+  --accent-ink: #08201d;
+  --pass: #63bd84;
+  --pass-soft: #183024;
+  --fail: #e57b69;
+  --fail-soft: #3a1d18;
+  --warn: #d9a441;
+  --warn-soft: #33270f;
+  --focus: #7ccabd;
+  --grid: #252b29;
+  --code-bg: #131716;
+  --hl-line: #3d3313;
+  --cat-1: #3987e5;
+  --cat-2: #d95926;
+  --cat-3: #199e70;
+  --cat-4: #c98500;
+  --cat-5: #d55181;
+  --cat-6: #9085e9;
+  --seq-0: #1a1f1e;
+  --seq-1: #173a35;
+  --seq-2: #1d5850;
+  --seq-3: #26786c;
+  --seq-4: #3c9a8b;
+  --seq-5: #6cc2b3;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* visible, consistent focus */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* grid items must be allowed to shrink below their content (wide tables/code scroll inside
+   their own overflow containers instead of stretching the page on phones) */
+.grid > * {
+  min-width: 0;
+}
+
+.num {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* faint ruled-notebook texture on the page background, no gradients */
+.ruled {
+  background-image: linear-gradient(to bottom, transparent 27px, var(--grid) 28px);
+  background-size: 100% 28px;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+/* Recharts: keep axes recessive */
+.recharts-cartesian-axis-tick-value {
+  fill: var(--muted);
+  font-size: 11px;
+}
+.recharts-cartesian-grid line {
+  stroke: var(--grid);
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

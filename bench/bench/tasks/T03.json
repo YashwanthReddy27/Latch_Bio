@@ -1,0 +1,66 @@
+{
+ "id": "T03",
+ "title": "Identify the failed replicate",
+ "category": "qc",
+ "difficulty": "medium",
+ "prompt": "One sample in this screen has a technical problem. Identify the sample and classify the problem as one of: low_coverage_bottleneck, sample_swap, plasmid_library_skew, contamination.",
+ "answer_schema": {
+  "type": "object",
+  "required": [
+   "sample",
+   "issue"
+  ],
+  "properties": {
+   "sample": {
+    "type": "string"
+   },
+   "issue": {
+    "type": "string"
+   }
+  }
+ },
+ "grader": {
+  "checks": [
+   {
+    "id": "sample",
+    "kind": "exact",
+    "path": "sample",
+    "value": "treat_rep2",
+    "label": "Sample"
+   },
+   {
+    "id": "issue",
+    "kind": "exact",
+    "path": "issue",
+    "value": "low_coverage_bottleneck",
+    "label": "Issue"
+   }
+  ]
+ },
+ "grader_plain": "Exact match on both the sample (treat_rep2) and the issue category. The evidence for a bottleneck is low reads per guide, excess dropouts and a high Gini index, not just low correlation.",
+ "traps": [
+  "Calling a bottleneck a sample swap from correlation alone"
+ ],
+ "milestones": [
+  "load",
+  "qc_coverage",
+  "qc_replicates",
+  "submit"
+ ],
+ "context": "You are analyzing a pooled CRISPR knockout screen. The workspace contains raw sgRNA read counts (counts.tsv), a sample sheet, gene sets and a short design document (design.md). Read design.md first.",
+ "inputs": [
+  "counts.tsv",
+  "samples.tsv",
+  "pathways.gmt",
+  "common_essentials.txt",
+  "design.md"
+ ],
+ "reference_answer": {
+  "sample": "treat_rep2",
+  "issue": "low_coverage_bottleneck"
+ },
+ "ground_truth": {
+  "bad_sample": "treat_rep2",
+  "issue": "low_coverage_bottleneck"
+ }
+}

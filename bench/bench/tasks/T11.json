@@ -1,0 +1,59 @@
+{
+ "id": "T11",
+ "title": "Pathway enrichment of resistance hits",
+ "category": "biological_interpretation",
+ "difficulty": "medium",
+ "prompt": "Which gene set in pathways.gmt is most significantly over-represented among genes whose knockout confers resistance to helixin (FDR < 0.1)? Report the gene set name exactly as written in the GMT file.",
+ "answer_schema": {
+  "type": "object",
+  "required": [
+   "pathway"
+  ],
+  "properties": {
+   "pathway": {
+    "type": "string"
+   }
+  }
+ },
+ "grader": {
+  "checks": [
+   {
+    "id": "pathway",
+    "kind": "exact",
+    "path": "pathway",
+    "value": "MISMATCH_REPAIR",
+    "label": "Gene set"
+   }
+  ]
+ },
+ "grader_plain": "Exact match: MISMATCH_REPAIR. Using sensitizers instead gives HOMOLOGOUS_RECOMBINATION; picking the set with the largest raw overlap with all significant genes gives RIBOSOME.",
+ "traps": [
+  "Direction",
+  "Raw overlap instead of an enrichment test"
+ ],
+ "milestones": [
+  "load",
+  "qc_coverage",
+  "exclude_bad",
+  "normalize",
+  "lfc",
+  "test",
+  "fdr",
+  "interpret",
+  "submit"
+ ],
+ "context": "You are analyzing a pooled CRISPR knockout screen. The workspace contains raw sgRNA read counts (counts.tsv), a sample sheet, gene sets and a short design document (design.md). Read design.md first.",
+ "inputs": [
+  "counts.tsv",
+  "samples.tsv",
+  "pathways.gmt",
+  "common_essentials.txt",
+  "design.md"
+ ],
+ "reference_answer": {
+  "pathway": "MISMATCH_REPAIR"
+ },
+ "ground_truth": {
+  "planted_pathway": "MISMATCH_REPAIR"
+ }
+}
