@@ -131,7 +131,9 @@ def judge_one(client, model: str, task: dict, traj: dict) -> dict:
     from google.genai import types
 
     t0 = time.perf_counter()
-    resp = client.models.generate_content(
+    from .agents.gemini import with_retry
+
+    resp = with_retry(lambda: client.models.generate_content(
         model=model,
         contents=build_prompt(task, traj),
         config=types.GenerateContentConfig(
@@ -141,7 +143,7 @@ def judge_one(client, model: str, task: dict, traj: dict) -> dict:
             temperature=0.0,
             max_output_tokens=2048,
         ),
-    )
+    ))
     out = json.loads(resp.text)
     words = out.get("explanation", "").split()
     if len(words) > 60:

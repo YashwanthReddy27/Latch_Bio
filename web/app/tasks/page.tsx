@@ -1,58 +1,61 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getTasks } from "@/lib/data";
-import { PageHeader, Section } from "@/components/ui/primitives";
+import type { TaskSpec } from "@/lib/types";
+import { PageHeader } from "@/components/ui/primitives";
 import { pct } from "@/lib/format";
 import { TASK_CATEGORY_LABEL } from "@/lib/task-meta";
 
 export const metadata: Metadata = { title: "Tasks" };
 
+const GROUPS: { key: TaskSpec["category"]; blurb: string }[] = [
+  { key: "qc", blurb: "Is the data usable?" },
+  { key: "statistical_reasoning", blurb: "Are the numbers computed soundly?" },
+  { key: "problem_interpretation", blurb: "Did the agent answer the question asked?" },
+  { key: "biological_interpretation", blurb: "Is the biology read correctly?" },
+];
+
 export default function TasksPage() {
-  const { tasks, inputs } = getTasks();
-  const counts = inputs.files["counts.tsv"];
+  const { tasks } = getTasks();
   return (
     <>
-      <PageHeader eyebrow="CRISPRScreenBench-mini" title="12 verifiable tasks on one pooled knockout screen">
-        <p>
-          A seeded synthetic genome-wide-style screen: {counts.genes?.toLocaleString()} genes × 4 sgRNAs plus {counts.non_targeting} non-targeting
-          controls, sequenced as plasmid, day 0, two helixin-treated and two vehicle replicates. Planted ground truth: core-essential genes,
-          30 treatment-specific hits, guide-efficacy noise, zero-count guides and one bottlenecked replicate. Each task is graded by a
-          deterministic checker; tasks are grouped by the failure mode they probe.
-        </p>
+      <PageHeader eyebrow="Tasks" title="12 tasks, one CRISPR screen">
+        <p>A synthetic pooled knockout screen with planted answers. Each task has a deterministic grader.</p>
       </PageHeader>
-      <Section title="Tasks" description="Pass rate is pooled over every configuration in the sweep.">
-        <div className="-mx-4 overflow-x-auto px-4">
-          <table className="w-full min-w-[760px] text-[13px]">
-            <thead>
-              <tr className="border-b border-border-strong text-left text-2xs uppercase tracking-[0.06em] text-muted">
-                <th scope="col" className="py-2 pr-3 font-medium">Task</th>
-                <th scope="col" className="py-2 pr-3 font-medium">Probes</th>
-                <th scope="col" className="py-2 pr-3 font-medium">Difficulty</th>
-                <th scope="col" className="py-2 pr-3 font-medium">Trap</th>
-                <th scope="col" className="py-2 pr-3 font-medium">Grader</th>
-                <th scope="col" className="py-2 text-right font-medium">Pass rate</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tasks.map((t) => (
-                <tr key={t.id} className="border-b border-border align-top last:border-0 hover:bg-surface-2">
-                  <td className="py-2 pr-3">
-                    <Link href={`/tasks/${t.id}`} className="font-medium hover:text-accent hover:underline">
-                      <span className="num text-muted">{t.id}</span> {t.title}
+      <div className="grid gap-6 md:grid-cols-2">
+        {GROUPS.map((g) => (
+          <section key={g.key} aria-labelledby={`g-${g.key}`}>
+            <h2 id={`g-${g.key}`} className="text-[13px] font-semibold">
+              {TASK_CATEGORY_LABEL[g.key]}
+            </h2>
+            <p className="mb-2 text-xs text-muted">{g.blurb}</p>
+            <ul className="grid gap-2">
+              {tasks
+                .filter((t) => t.category === g.key)
+                .map((t) => (
+                  <li key={t.id}>
+                    <Link
+                      href={`/tasks/${t.id}`}
+                      className="flex items-center gap-3 rounded border border-border bg-surface px-3 py-2.5 hover:border-accent"
+                    >
+                      <span className="num w-8 text-xs text-muted">{t.id}</span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate text-[13px] font-medium">{t.title}</span>
+                        <span className="text-xs text-muted">{t.difficulty}</span>
+                      </span>
+                      <span className="w-20 shrink-0" aria-label={`pass rate ${pct(t.pass_rate ?? 0)}`}>
+                        <span className="num block text-right text-xs">{pct(t.pass_rate ?? 0)}</span>
+                        <span className="mt-1 block h-1 rounded-full bg-surface-3">
+                          <span className="block h-1 rounded-full bg-accent" style={{ width: `${(t.pass_rate ?? 0) * 100}%` }} />
+                        </span>
+                      </span>
                     </Link>
-                    <p className="mt-0.5 max-w-md text-xs text-muted">{t.prompt}</p>
-                  </td>
-                  <td className="py-2 pr-3 text-ink-2">{TASK_CATEGORY_LABEL[t.category]}</td>
-                  <td className="py-2 pr-3 text-ink-2">{t.difficulty}</td>
-                  <td className="py-2 pr-3 text-xs text-ink-2">{t.traps.join("; ")}</td>
-                  <td className="py-2 pr-3 font-mono text-[11px] text-muted">{Array.from(new Set(t.grader.checks.map((c) => c.kind))).join(", ")}</td>
-                  <td className="num py-2 text-right">{pct(t.pass_rate ?? 0)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </Section>
+                  </li>
+                ))}
+            </ul>
+          </section>
+        ))}
+      </div>
     </>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AlertTriangle, FileText, FolderOpen, Send, SquareTerminal } from "lucide-react";
+import { AlertTriangle, ChevronDown, ChevronUp, FileText, FolderOpen, Send, SquareTerminal } from "lucide-react";
 import type { Category, Step } from "@/lib/types";
 import { CATEGORY_LABEL } from "@/lib/types";
 import { CATEGORY_COLOR } from "@/components/ui/primitives";
@@ -59,13 +59,17 @@ export function StepCard({
   imageBase = "/data/",
   compact = false,
   anchorPrefix = "step",
+  defaultOpen = true,
 }: {
   step: Step;
   marks?: StepMarks;
   imageBase?: string;
   compact?: boolean;
   anchorPrefix?: string;
+  /** collapsed steps show the reasoning plus a one-line summary; flagged steps stay open */
+  defaultOpen?: boolean;
 }) {
+  const [open, setOpen] = useState(defaultOpen);
   const Icon = TOOL_ICON[step.tool] ?? AlertTriangle;
   const out = step.output ?? {};
   const code = step.tool === "run_python" ? String(step.args.code ?? "") : "";
@@ -110,8 +114,25 @@ export function StepCard({
             {secs(step.latency_s + step.exec_s)}
           </span>
         )}
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-controls={`${anchorPrefix}-${step.i}-body`}
+          className="inline-flex items-center gap-0.5 rounded px-1 text-[11px] text-accent hover:bg-surface-2"
+        >
+          {open ? <ChevronUp size={13} aria-hidden /> : <ChevronDown size={13} aria-hidden />}
+          {open ? "Collapse" : "Expand"}
+        </button>
       </header>
-      <div className="grid gap-2 px-3 py-2.5">
+      {!open && (
+        <div className="grid gap-1 px-3 py-2" id={`${anchorPrefix}-${step.i}-body`}>
+          {step.thought && <p className="line-clamp-2 max-w-prose text-[13px] text-ink-2">{step.thought}</p>}
+          <p className={cn("truncate font-mono text-[11.5px]", out.error ? "text-fail" : "text-muted")}>{summaryLine(step)}</p>
+        </div>
+      )}
+      {open && (
+      <div className="grid gap-2 px-3 py-2.5" id={`${anchorPrefix}-${step.i}-body`}>
         {step.thought && <p className="max-w-prose text-[13px] text-ink-2">{step.thought}</p>}
         {code && (
           <CodeBlock code={code} highlight={marks.evidenceLines} maxHeight={compact ? 220 : 420} label={`Code for step ${step.i}`} />
@@ -147,8 +168,25 @@ export function StepCard({
           </div>
         )}
       </div>
+      )}
     </article>
   );
+}
+
+/** One-line description of a step for its collapsed state. */
+function summaryLine(step: Step): string {
+  const out = step.output ?? {};
+  const first = (t: string) => t.trim().split("\n").filter(Boolean)[0] ?? "";
+  if (out.error) return `error: ${String(out.error).trim().split("\n").pop()}`;
+  if (step.tool === "run_python") {
+    const code = first(String(step.args.code ?? ""));
+    const lines = String(step.args.code ?? "").split("\n").length;
+    return `${code}${lines > 1 ? `  … (${lines} lines)` : ""}${out.stdout ? `  →  ${first(String(out.stdout))}` : ""}`;
+  }
+  if (step.tool === "read_file") return `read ${String(step.args.path)}`;
+  if (step.tool === "list_files") return Array.isArray(out.files) ? out.files.map((f) => f.path).join("  ") : "list files";
+  if (step.tool === "submit_answer") return `answer: ${String(step.args.answer_json ?? "").slice(0, 160)}`;
+  return step.tool;
 }
 
 function prettyJson(raw: unknown): string {

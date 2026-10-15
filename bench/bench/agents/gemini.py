@@ -46,6 +46,24 @@ DEFAULT_PRICE = (0.75, 3.75)
 MAX_OUTPUT_TOKENS = 8192
 
 
+RETRY_DELAYS_S = (4, 8, 16, 30, 60, 90)
+
+
+def with_retry(call):
+    """Retry transient Gemini errors (429 rate limit, 500/503 overload) with backoff.
+    Time spent waiting is not charged to the agent's step latency budget beyond the call itself."""
+    for i, delay in enumerate((*RETRY_DELAYS_S, None)):
+        try:
+            return call()
+        except Exception as e:  # noqa: BLE001
+            code = getattr(e, "code", None) or getattr(e, "status_code", None)
+            transient = code in (429, 500, 502, 503, 504) or "UNAVAILABLE" in str(e) or "RESOURCE_EXHAUSTED" in str(e)
+            if not transient or delay is None:
+                raise
+            print(f"    gemini {code}: retry {i + 1}/{len(RETRY_DELAYS_S)} in {delay}s", flush=True)
+            time.sleep(delay)
+
+
 def model_id() -> str:
     m = os.environ.get("GEMINI_MODEL", "").strip()
     if not m:
@@ -119,7 +137,8 @@ class GeminiAgent:
                 self.responses = []
             while True:
                 t0 = time.perf_counter()
-                resp = self.client.models.generate_content(model=self.model, contents=self.contents, config=self.gen_config)
+                resp = with_retry(lambda: self.client.models.generate_content(
+                    model=self.model, contents=self.contents, config=self.gen_config))
                 latency += time.perf_counter() - t0
                 um = resp.usage_metadata
                 if um:

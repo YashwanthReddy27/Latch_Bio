@@ -6,6 +6,7 @@ import { ButtonLink, KindBadge, PageHeader, Section } from "@/components/ui/prim
 import { CodeBlock } from "@/components/trajectory/code-block";
 import { PassRateBar } from "@/components/charts/leaderboard";
 import { TASK_CATEGORY_LABEL, describeCheck } from "@/lib/task-meta";
+import { PageTabs } from "@/components/ui/tabs";
 
 export const dynamicParams = false;
 
@@ -55,8 +56,15 @@ export default function TaskPage({ params }: { params: { id: string } }) {
         <p className="mt-1 text-xs text-muted">{task.context}</p>
       </PageHeader>
 
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
-        <div className="grid content-start gap-4">
+      <PageTabs
+        label="Task views"
+        items={[
+          {
+            value: "grading",
+            label: "How it's graded",
+            content: (
+              <div className="grid gap-4 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+                <div className="grid content-start gap-4">
           <Section title="How it is graded" description="Deterministic: no LLM, no randomness, same answer → same verdict.">
             <p className="text-[13px] text-ink-2">{task.grader_plain}</p>
             <ol className="mt-3 grid gap-2">
@@ -79,19 +87,8 @@ export default function TaskPage({ params }: { params: { id: string } }) {
             </p>
           </Section>
 
-          <Section title="Answer schema and reference answer">
-            <div className="grid gap-3 md:grid-cols-2">
-              <div>
-                <p className="mb-1 text-2xs font-medium uppercase tracking-[0.06em] text-muted">Schema</p>
-                <CodeBlock code={JSON.stringify(task.answer_schema, null, 1)} language="json" maxHeight={280} label="Answer schema" />
-              </div>
-              <div>
-                <p className="mb-1 text-2xs font-medium uppercase tracking-[0.06em] text-muted">Reference answer (scripted pipeline)</p>
-                <CodeBlock code={JSON.stringify(task.reference_answer, null, 1)} language="json" maxHeight={280} label="Reference answer" />
-              </div>
-            </div>
-          </Section>
-
+                </div>
+                <div className="grid content-start gap-4">
           <Section title="Reference pipeline milestones" description="Used to align trajectories and find the first divergence step.">
             <ol className="flex flex-wrap gap-1.5 text-xs">
               {task.milestones.map((m, i) => (
@@ -104,35 +101,16 @@ export default function TaskPage({ params }: { params: { id: string } }) {
               ))}
             </ol>
           </Section>
-        </div>
-
-        <div className="grid content-start gap-4">
-          <Section title="Planted ground truth" description="Hidden from agents; known to the grader.">
-            {Object.keys(task.ground_truth).length ? (
-              <dl className="grid gap-2 text-[13px]">
-                {Object.entries(task.ground_truth).map(([k, v]) => (
-                  <div key={k}>
-                    <dt className="text-xs text-muted">{k.replaceAll("_", " ")}</dt>
-                    <dd className="mt-0.5 font-mono text-[12px] leading-relaxed text-ink">
-                      {Array.isArray(v)
-                        ? v.join(", ")
-                        : typeof v === "object" && v
-                          ? Object.entries(v as Record<string, string>).map(([g, c]) => (
-                              <span key={g} className="mr-2 inline-block">
-                                {g}
-                                <span className="text-muted">:{String(c).replace("treatment_specific", "trt").replace("core_essential", "ess")}</span>
-                              </span>
-                            ))
-                          : String(v)}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            ) : (
-              <p className="text-[13px] text-ink-2">Values are computed from the data by the reference pipeline (see reference answer).</p>
-            )}
-          </Section>
-
+                </div>
+              </div>
+            ),
+          },
+          {
+            value: "data",
+            label: "Data and truth",
+            content: (
+              <div className="grid gap-4 lg:grid-cols-2">
+                <div className="grid content-start gap-4">
           <Section title="Inputs" description="Files copied into the agent's sandbox workspace.">
             <ul className="grid gap-1 text-[13px]">
               {task.inputs.map((f) => {
@@ -178,6 +156,56 @@ export default function TaskPage({ params }: { params: { id: string } }) {
             </div>
           </Section>
 
+                </div>
+                <div className="grid content-start gap-4">
+          <Section title="Planted ground truth" description="Hidden from agents; known to the grader.">
+            {Object.keys(task.ground_truth).length ? (
+              <dl className="grid gap-2 text-[13px]">
+                {Object.entries(task.ground_truth).map(([k, v]) => (
+                  <div key={k}>
+                    <dt className="text-xs text-muted">{k.replaceAll("_", " ")}</dt>
+                    <dd className="mt-0.5 font-mono text-[12px] leading-relaxed text-ink">
+                      {Array.isArray(v)
+                        ? v.join(", ")
+                        : typeof v === "object" && v
+                          ? Object.entries(v as Record<string, string>).map(([g, c]) => (
+                              <span key={g} className="mr-2 inline-block">
+                                {g}
+                                <span className="text-muted">:{String(c).replace("treatment_specific", "trt").replace("core_essential", "ess")}</span>
+                              </span>
+                            ))
+                          : String(v)}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            ) : (
+              <p className="text-[13px] text-ink-2">Values are computed from the data by the reference pipeline (see reference answer).</p>
+            )}
+          </Section>
+
+          <Section title="Answer schema and reference answer">
+            <div className="grid gap-3 md:grid-cols-2">
+              <div>
+                <p className="mb-1 text-2xs font-medium uppercase tracking-[0.06em] text-muted">Schema</p>
+                <CodeBlock code={JSON.stringify(task.answer_schema, null, 1)} language="json" maxHeight={280} label="Answer schema" />
+              </div>
+              <div>
+                <p className="mb-1 text-2xs font-medium uppercase tracking-[0.06em] text-muted">Reference answer (scripted pipeline)</p>
+                <CodeBlock code={JSON.stringify(task.reference_answer, null, 1)} language="json" maxHeight={280} label="Reference answer" />
+              </div>
+            </div>
+          </Section>
+
+                </div>
+              </div>
+            ),
+          },
+          {
+            value: "results",
+            label: "Results",
+            content: (
+              <div className="grid gap-4 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
           <Section title="Pass rate on this task" actions={<ButtonLink href={`/trajectories?task=${task.id}`}>Trajectories</ButtonLink>}>
             <ul className="grid gap-2">
               {configs.map((c) => {
@@ -203,8 +231,11 @@ export default function TaskPage({ params }: { params: { id: string } }) {
               Open in Live run
             </ButtonLink>
           </Section>
-        </div>
-      </div>
+              </div>
+            ),
+          },
+        ]}
+      />
     </>
   );
 }

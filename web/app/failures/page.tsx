@@ -6,6 +6,7 @@ import { CATEGORIES, CATEGORY_LABEL } from "@/lib/types";
 import { FailureStack } from "@/components/charts/failure-stack";
 import { DivergenceHist } from "@/components/charts/divergence-hist";
 import { CATEGORY_COLOR, CategoryTag, Note, PageHeader, Section } from "@/components/ui/primitives";
+import { PageTabs } from "@/components/ui/tabs";
 
 export const metadata: Metadata = { title: "Failure taxonomy" };
 
@@ -53,12 +54,20 @@ export default function FailuresPage() {
     <>
       <PageHeader eyebrow="Failure taxonomy" title="Why agents fail">
         <p>
-          Every failed trajectory gets one root-cause label from rule-based signals in the trajectory (the code it ran, the
-          outputs it saw, the answer it gave){judgeAvailable ? " and, independently, from a Gemini judge" : ""}. The{" "}
-          <em>first divergence step</em> is where the agent first departed from the reference pipeline.
+          Each failed run gets one root-cause label from rules{judgeAvailable ? " and from a Gemini judge" : ""}, plus the step where it
+          first went wrong.
         </p>
       </PageHeader>
 
+      <PageTabs
+        label="Failure taxonomy views"
+        items={[
+          {
+            value: "summary",
+            label: "Summary",
+            hint: "what goes wrong",
+            content: (
+              <>
       <div className="mb-4 grid grid-cols-2 gap-px overflow-hidden rounded border border-border bg-border sm:grid-cols-3 lg:grid-cols-6">
         {catTotals.map(({ k, n }) => (
           <div key={k} className="bg-surface px-3 py-3">
@@ -70,21 +79,30 @@ export default function FailuresPage() {
               {n} <span className="text-xs font-normal text-muted">/ {totalFail}</span>
             </p>
             <p className="mt-1 text-xs leading-snug text-ink-2">{DEFINITIONS[k].def}</p>
-            <p className="mt-1 text-[11px] leading-snug text-muted">{DEFINITIONS[k].example}</p>
           </div>
         ))}
       </div>
 
-      <div className="grid gap-4">
-        <Section id="by-config" title="Failure categories per configuration" description="Bars are the number of failed runs, split by root cause. Configs with similar pass rates can fail for different reasons.">
+                <div className="grid gap-4">
+        <Section id="by-config" title="Failure categories per configuration" description="Configs with similar pass rates can fail for different reasons.">
           <FailureStack configs={configs} judgeAvailable={judgeAvailable} />
         </Section>
 
+</div>
+              </>
+            ),
+          },
+          {
+            value: "where",
+            label: "Where it goes wrong",
+            hint: "step and task",
+            content: (
+              <div className="grid gap-4">
         <div className="grid gap-4 lg:grid-cols-2">
           <Section
             id="divergence"
             title="First divergence step"
-            description="Step index (0-based) of the first departure from the reference pipeline: a flawed cell, a step done before its prerequisite, or the first error of an unrecovered streak."
+            description="The step (0-based) where a run first departed from the reference pipeline."
           >
             <DivergenceHist hist={failures.first_divergence} configs={configs} />
             <table className="mt-3 w-full text-[13px]">
@@ -102,7 +120,7 @@ export default function FailuresPage() {
             </table>
           </Section>
 
-          <Section id="by-task" title="Failures by task" description="Which tasks trigger which failure mode (rule labels, all configs).">
+          <Section id="by-task" title="Failures by task" description="Which tasks trigger which failure mode.">
             <div className="-mx-4 overflow-x-auto px-4">
               <table className="w-full min-w-[460px] text-[12px]">
                 <thead>
@@ -146,10 +164,19 @@ export default function FailuresPage() {
           </Section>
         </div>
 
+              </div>
+            ),
+          },
+          {
+            value: "trust",
+            label: "Label quality",
+            hint: "judge vs rules vs gold",
+            content: (
+              <div className="grid gap-4">
         <Section
           id="disagreement"
           title="Judge / rule disagreement"
-          description="An LLM judge is not trusted blindly. Where the Gemini judge and the rule-based labeler disagree, both labels are shown and the run is flagged for review."
+          description="Where the Gemini judge and the rules disagree, both labels are shown and the run is flagged."
         >
           {judgeAvailable ? (
             disagreeRows.length ? (
@@ -175,7 +202,7 @@ export default function FailuresPage() {
         </Section>
 
         <div className="grid gap-4 lg:grid-cols-2">
-          <Section id="signals" title="Rule signals" description="How often each rule fired. 'Latent' = fired on a run that still passed (a harmless or lucky mistake).">
+          <Section id="signals" title="Rule signals" description="'Latent' = fired on a run that still passed.">
             <div className="-mx-4 overflow-x-auto px-4">
               <table className="w-full min-w-[420px] text-[12px]">
                 <thead>
@@ -206,7 +233,7 @@ export default function FailuresPage() {
             </div>
           </Section>
 
-          <Section id="gold" title="Gold set" description={`${gold.n} failures labeled by hand (${gold.labeler || "see bench/labels_gold.json"}). Used to score both labelers.`}>
+          <Section id="gold" title="Gold set" description={`${gold.n} hand-labeled failures used to score both labelers.`}>
             <div className="-mx-4 max-h-[420px] overflow-auto px-4">
               <table className="w-full min-w-[520px] text-[12px]">
                 <thead className="sticky top-0 bg-surface">
@@ -243,7 +270,11 @@ export default function FailuresPage() {
             </div>
           </Section>
         </div>
-      </div>
+              </div>
+            ),
+          },
+        ]}
+      />
     </>
   );
 }
