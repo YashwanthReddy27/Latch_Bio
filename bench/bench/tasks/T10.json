@@ -1,0 +1,174 @@
+{
+ "id": "T10",
+ "title": "Core-essential vs treatment-specific",
+ "category": "biological_interpretation",
+ "difficulty": "hard",
+ "prompt": "candidates.json lists 30 genes. Classify each as core_essential (fitness gene required regardless of drug), treatment_specific (knockout changes the response to helixin, either direction), or neither.",
+ "answer_schema": {
+  "type": "object",
+  "required": [
+   "core_essential",
+   "treatment_specific",
+   "neither"
+  ],
+  "properties": {
+   "core_essential": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "treatment_specific": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "neither": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "grader": {
+  "checks": [
+   {
+    "id": "classification",
+    "kind": "classification",
+    "path": "",
+    "truth": {
+     "RPL34": "core_essential",
+     "FANCA": "treatment_specific",
+     "REV3L": "treatment_specific",
+     "UBE2T": "treatment_specific",
+     "RPS12": "core_essential",
+     "HX0390": "neither",
+     "PSMB4": "core_essential",
+     "APAF1": "treatment_specific",
+     "HX1278": "neither",
+     "MLH3": "treatment_specific",
+     "CDKN1A": "treatment_specific",
+     "POLB": "treatment_specific",
+     "HX0512": "neither",
+     "RPL30": "core_essential",
+     "RPL10": "core_essential",
+     "HX1394": "neither",
+     "HX0955": "neither",
+     "HX0142": "neither",
+     "RPL9": "core_essential",
+     "POLR2B": "core_essential",
+     "MSH2": "treatment_specific",
+     "HX1236": "neither",
+     "PMS1": "treatment_specific",
+     "HX0136": "neither",
+     "HX1555": "neither",
+     "PALB2": "treatment_specific",
+     "HX0667": "neither",
+     "RPL36": "core_essential",
+     "PSMD3": "core_essential",
+     "BUB1B": "core_essential"
+    },
+    "min_accuracy": 0.85,
+    "label": "Classification accuracy"
+   }
+  ]
+ },
+ "grader_plain": "At least 26 of 30 genes in the planted class. Essential genes deplete in BOTH arms relative to day0, so depletion in the treated arm alone is not evidence of a drug interaction.",
+ "traps": [
+  "Essential genes look like sensitizers if compared to day0"
+ ],
+ "milestones": [
+  "load",
+  "qc_coverage",
+  "exclude_bad",
+  "normalize",
+  "lfc",
+  "test",
+  "fdr",
+  "interpret",
+  "submit"
+ ],
+ "context": "You are analyzing a pooled CRISPR knockout screen. The workspace contains raw sgRNA read counts (counts.tsv), a sample sheet, gene sets and a short design document (design.md). Read design.md first.",
+ "inputs": [
+  "counts.tsv",
+  "samples.tsv",
+  "pathways.gmt",
+  "common_essentials.txt",
+  "design.md",
+  "candidates.json"
+ ],
+ "reference_answer": {
+  "core_essential": [
+   "BUB1B",
+   "POLR2B",
+   "PSMB4",
+   "PSMD3",
+   "RPL10",
+   "RPL30",
+   "RPL34",
+   "RPL36",
+   "RPL9",
+   "RPS12"
+  ],
+  "treatment_specific": [
+   "APAF1",
+   "CDKN1A",
+   "FANCA",
+   "MLH3",
+   "MSH2",
+   "PALB2",
+   "PMS1",
+   "POLB",
+   "REV3L",
+   "UBE2T"
+  ],
+  "neither": [
+   "HX0136",
+   "HX0142",
+   "HX0390",
+   "HX0512",
+   "HX0667",
+   "HX0955",
+   "HX1236",
+   "HX1278",
+   "HX1394",
+   "HX1555"
+  ]
+ },
+ "ground_truth": {
+  "labels": {
+   "RPL34": "core_essential",
+   "FANCA": "treatment_specific",
+   "REV3L": "treatment_specific",
+   "UBE2T": "treatment_specific",
+   "RPS12": "core_essential",
+   "HX0390": "neither",
+   "PSMB4": "core_essential",
+   "APAF1": "treatment_specific",
+   "HX1278": "neither",
+   "MLH3": "treatment_specific",
+   "CDKN1A": "treatment_specific",
+   "POLB": "treatment_specific",
+   "HX0512": "neither",
+   "RPL30": "core_essential",
+   "RPL10": "core_essential",
+   "HX1394": "neither",
+   "HX0955": "neither",
+   "HX0142": "neither",
+   "RPL9": "core_essential",
+   "POLR2B": "core_essential",
+   "MSH2": "treatment_specific",
+   "HX1236": "neither",
+   "PMS1": "treatment_specific",
+   "HX0136": "neither",
+   "HX1555": "neither",
+   "PALB2": "treatment_specific",
+   "HX0667": "neither",
+   "RPL36": "core_essential",
+   "PSMD3": "core_essential",
+   "BUB1B": "core_essential"
+  }
+ }
+}

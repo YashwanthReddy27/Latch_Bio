@@ -1,0 +1,46 @@
+{
+ "system": "You are an expert reviewer of AI agent trajectories for bioinformatics benchmark tasks (pooled CRISPR screen analysis). Given a FAILED trajectory, identify the single root-cause failure category and the first step where the agent diverged from a sound analysis. Judge the root cause, not downstream symptoms. Cite only step ids that appear in the digest. The explanation must be at most 60 words and refer to concrete evidence.",
+ "reference_summary": "Reference pipeline: (1) load counts.tsv and read design.md; (2) QC: reads per sgRNA, zero-count guides, Gini per sample; (3) replicate correlation of guide LFC vs day0; (4) exclude treat_rep2 (≈110 reads/sgRNA, Gini 0.40, r≈0.45: a cell bottleneck); (5) median-of-ratios (or CPM) depth normalization; (6) guide log2FC of treatment vs VEHICLE CONTROL (not day0), median per gene; (7) gene z-test against non-targeting guides, one-sided per direction; (8) Benjamini-Hochberg FDR; (9) interpret: resistance = enriched, sensitizer = depleted, core essentials deplete in both arms and are not drug hits, pathway enrichment by hypergeometric test.",
+ "categories": {
+  "problem_interpretation": "misread what was asked: wrong direction (enriched vs depleted), wrong comparison/baseline, wrong quantity",
+  "statistical_reasoning": "unsound statistics: no/incorrect normalization, kept a failed replicate, no multiple-testing correction, wrong test",
+  "biological_interpretation": "sound numbers, wrong biology: essential genes called drug hits, enrichment by raw overlap, misclassified gene roles",
+  "qc_miss": "missed or mis-computed a quality-control metric or the failed sample",
+  "execution_error": "code/tool errors the agent never recovered from; no valid answer",
+  "formatting": "analysis may be fine but the submitted JSON violates the schema"
+ },
+ "schema": {
+  "type": "object",
+  "properties": {
+   "category": {
+    "type": "string",
+    "enum": [
+     "problem_interpretation",
+     "statistical_reasoning",
+     "biological_interpretation",
+     "qc_miss",
+     "execution_error",
+     "formatting"
+    ]
+   },
+   "first_divergence_step": {
+    "type": "integer"
+   },
+   "evidence_step_ids": {
+    "type": "array",
+    "items": {
+     "type": "integer"
+    }
+   },
+   "explanation": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "category",
+   "first_divergence_step",
+   "evidence_step_ids",
+   "explanation"
+  ]
+ }
+}

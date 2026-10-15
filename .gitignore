@@ -1,0 +1,26 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+bench/.venv/
+bench/*.egg-info/
+bench/runs_sweep.log
+
+# node / next
+web/node_modules/
+web/.next/
+web/out/
+web/tsconfig.tsbuildinfo
+web/next-env.d.ts
+.vercel
+
+# os / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

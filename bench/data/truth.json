@@ -1,0 +1,1456 @@
+{
+ "seed": 20261014,
+ "core_essential": [
+  "AURKB",
+  "BUB1B",
+  "CCNA2",
+  "CDK1",
+  "EEF1A1",
+  "EEF2",
+  "EIF2S1",
+  "EIF3A",
+  "EIF3B",
+  "EIF3D",
+  "EIF4A3",
+  "KIF11",
+  "MCM2",
+  "MCM3",
+  "MCM4",
+  "MCM5",
+  "MCM6",
+  "MCM7",
+  "PCNA",
+  "PLK1",
+  "POLA1",
+  "POLD1",
+  "POLE",
+  "POLR2A",
+  "POLR2B",
+  "POLR2C",
+  "POLR2D",
+  "POLR2E",
+  "POLR2F",
+  "POLR2G",
+  "POLR2H",
+  "POLR2I",
+  "POLR2J",
+  "POLR2L",
+  "PRPF19",
+  "PRPF8",
+  "PSMA1",
+  "PSMA2",
+  "PSMA3",
+  "PSMA4",
+  "PSMA5",
+  "PSMA6",
+  "PSMA7",
+  "PSMB1",
+  "PSMB2",
+  "PSMB3",
+  "PSMB4",
+  "PSMB5",
+  "PSMB6",
+  "PSMB7",
+  "PSMC1",
+  "PSMC2",
+  "PSMC3",
+  "PSMC4",
+  "PSMC5",
+  "PSMC6",
+  "PSMD1",
+  "PSMD11",
+  "PSMD12",
+  "PSMD14",
+  "PSMD2",
+  "PSMD3",
+  "PSMD4",
+  "PSMD6",
+  "PSMD7",
+  "PSMD8",
+  "RFC2",
+  "RFC4",
+  "RPL10",
+  "RPL10A",
+  "RPL11",
+  "RPL12",
+  "RPL13",
+  "RPL13A",
+  "RPL14",
+  "RPL15",
+  "RPL17",
+  "RPL18",
+  "RPL18A",
+  "RPL19",
+  "RPL21",
+  "RPL23",
+  "RPL23A",
+  "RPL24",
+  "RPL26",
+  "RPL27",
+  "RPL27A",
+  "RPL28",
+  "RPL29",
+  "RPL3",
+  "RPL30",
+  "RPL31",
+  "RPL32",
+  "RPL34",
+  "RPL35",
+  "RPL35A",
+  "RPL36",
+  "RPL37",
+  "RPL37A",
+  "RPL38",
+  "RPL4",
+  "RPL5",
+  "RPL6",
+  "RPL7",
+  "RPL7A",
+  "RPL8",
+  "RPL9",
+  "RPS11",
+  "RPS12",
+  "RPS13",
+  "RPS14",
+  "RPS15",
+  "RPS15A",
+  "RPS16",
+  "RPS18",
+  "RPS19",
+  "RPS2",
+  "RPS20",
+  "RPS21",
+  "RPS23",
+  "RPS24",
+  "RPS25",
+  "RPS26",
+  "RPS27A",
+  "RPS28",
+  "RPS29",
+  "RPS3",
+  "RPS3A",
+  "RPS4X",
+  "RPS5",
+  "RPS6",
+  "RPS7",
+  "RPS8",
+  "RPS9",
+  "RRM1",
+  "RRM2",
+  "SF3A1",
+  "SF3A3",
+  "SF3B1",
+  "SF3B2",
+  "SF3B3",
+  "SNRPD1",
+  "SNRPD2",
+  "SNRPD3",
+  "SNRPE",
+  "SNRPF",
+  "U2AF1",
+  "U2AF2"
+ ],
+ "resistance_hits": [
+  "APAF1",
+  "BAX",
+  "CDKN1A",
+  "EXO1",
+  "MLH1",
+  "MLH3",
+  "MSH2",
+  "MSH6",
+  "PMS1",
+  "PMS2",
+  "SLFN11",
+  "TP53"
+ ],
+ "sensitizer_hits": [
+  "BRCA1",
+  "BRCA2",
+  "FANCA",
+  "FANCD2",
+  "FANCI",
+  "FANCL",
+  "MGMT",
+  "PALB2",
+  "POLB",
+  "RAD18",
+  "RAD51C",
+  "RAD51D",
+  "REV1",
+  "REV3L",
+  "UBE2T",
+  "XRCC1",
+  "XRCC2",
+  "XRCC3"
+ ],
+ "mild_fitness": [
+  "HX0014",
+  "HX0060",
+  "HX0079",
+  "HX0091",
+  "HX0114",
+  "HX0125",
+  "HX0142",
+  "HX0143",
+  "HX0167",
+  "HX0198",
+  "HX0214",
+  "HX0225",
+  "HX0234",
+  "HX0243",
+  "HX0244",
+  "HX0267",
+  "HX0269",
+  "HX0297",
+  "HX0305",
+  "HX0311",
+  "HX0316",
+  "HX0325",
+  "HX0328",
+  "HX0347",
+  "HX0350",
+  "HX0351",
+  "HX0356",
+  "HX0368",
+  "HX0371",
+  "HX0382",
+  "HX0397",
+  "HX0405",
+  "HX0437",
+  "HX0467",
+  "HX0532",
+  "HX0533",
+  "HX0570",
+  "HX0574",
+  "HX0584",
+  "HX0605",
+  "HX0613",
+  "HX0628",
+  "HX0629",
+  "HX0646",
+  "HX0664",
+  "HX0668",
+  "HX0739",
+  "HX0748",
+  "HX0752",
+  "HX0767",
+  "HX0821",
+  "HX0829",
+  "HX0848",
+  "HX0851",
+  "HX0876",
+  "HX0895",
+  "HX0899",
+  "HX0900",
+  "HX0904",
+  "HX0955",
+  "HX1014",
+  "HX1025",
+  "HX1027",
+  "HX1028",
+  "HX1031",
+  "HX1076",
+  "HX1083",
+  "HX1093",
+  "HX1105",
+  "HX1128",
+  "HX1139",
+  "HX1167",
+  "HX1238",
+  "HX1241",
+  "HX1258",
+  "HX1259",
+  "HX1275",
+  "HX1290",
+  "HX1307",
+  "HX1355",
+  "HX1394",
+  "HX1404",
+  "HX1423",
+  "HX1424",
+  "HX1430",
+  "HX1452",
+  "HX1471",
+  "HX1489",
+  "HX1498",
+  "HX1507",
+  "HX1546",
+  "HX1550",
+  "HX1610",
+  "HX1617",
+  "HX1621",
+  "HX1638",
+  "HX1645",
+  "HX1652",
+  "HX1705",
+  "HX1717"
+ ],
+ "bad_sample": "treat_rep2",
+ "bad_sample_issue": "low_coverage_bottleneck",
+ "failed_synthesis_guides": [
+  "BAX_sg1",
+  "HX0016_sg3",
+  "HX0073_sg3",
+  "HX0143_sg4",
+  "HX0185_sg3",
+  "HX0280_sg4",
+  "HX0439_sg2",
+  "HX0626_sg2",
+  "HX0668_sg4",
+  "HX0728_sg2",
+  "HX0759_sg1",
+  "HX0775_sg4",
+  "HX0788_sg1",
+  "HX0791_sg4",
+  "HX0849_sg4",
+  "HX0870_sg3",
+  "HX0907_sg2",
+  "HX1034_sg2",
+  "HX1098_sg2",
+  "HX1099_sg2",
+  "HX1128_sg2",
+  "HX1277_sg1",
+  "HX1282_sg3",
+  "HX1378_sg2",
+  "HX1384_sg4",
+  "HX1494_sg4",
+  "HX1524_sg2",
+  "HX1580_sg3",
+  "HX1588_sg2",
+  "HX1593_sg3",
+  "HX1617_sg1",
+  "HX1665_sg1",
+  "MCM2_sg3",
+  "MSH2_sg1",
+  "PSMD11_sg1",
+  "PSMD3_sg4",
+  "PSMD7_sg4",
+  "RELA_sg1",
+  "RPL15_sg2",
+  "RPL27_sg3"
+ ],
+ "gene_effects": {
+  "RPL3": {
+   "essential_lfc": -1.664,
+   "treatment_lfc": 0.0
+  },
+  "RPL4": {
+   "essential_lfc": -2.097,
+   "treatment_lfc": 0.0
+  },
+  "RPL5": {
+   "essential_lfc": -1.614,
+   "treatment_lfc": 0.0
+  },
+  "RPL6": {
+   "essential_lfc": -2.366,
+   "treatment_lfc": 0.0
+  },
+  "RPL7": {
+   "essential_lfc": -1.812,
+   "treatment_lfc": 0.0
+  },
+  "RPL7A": {
+   "essential_lfc": -2.15,
+   "treatment_lfc": 0.0
+  },
+  "RPL8": {
+   "essential_lfc": -2.023,
+   "treatment_lfc": 0.0
+  },
+  "RPL9": {
+   "essential_lfc": -3.579,
+   "treatment_lfc": 0.0
+  },
+  "RPL10": {
+   "essential_lfc": -2.685,
+   "treatment_lfc": 0.0
+  },
+  "RPL10A": {
+   "essential_lfc": -2.488,
+   "treatment_lfc": 0.0
+  },
+  "RPL11": {
+   "essential_lfc": -2.772,
+   "treatment_lfc": 0.0
+  },
+  "RPL12": {
+   "essential_lfc": -3.048,
+   "treatment_lfc": 0.0
+  },
+  "RPL13": {
+   "essential_lfc": -1.765,
+   "treatment_lfc": 0.0
+  },
+  "RPL13A": {
+   "essential_lfc": -2.67,
+   "treatment_lfc": 0.0
+  },
+  "RPL14": {
+   "essential_lfc": -2.248,
+   "treatment_lfc": 0.0
+  },
+  "RPL15": {
+   "essential_lfc": -2.13,
+   "treatment_lfc": 0.0
+  },
+  "RPL17": {
+   "essential_lfc": -2.701,
+   "treatment_lfc": 0.0
+  },
+  "RPL18": {
+   "essential_lfc": -3.154,
+   "treatment_lfc": 0.0
+  },
+  "RPL18A": {
+   "essential_lfc": -3.426,
+   "treatment_lfc": 0.0
+  },
+  "RPL19": {
+   "essential_lfc": -2.346,
+   "treatment_lfc": 0.0
+  },
+  "RPL21": {
+   "essential_lfc": -3.202,
+   "treatment_lfc": 0.0
+  },
+  "RPL23": {
+   "essential_lfc": -2.215,
+   "treatment_lfc": 0.0
+  },
+  "RPL23A": {
+   "essential_lfc": -2.335,
+   "treatment_lfc": 0.0
+  },
+  "RPL24": {
+   "essential_lfc": -3.201,
+   "treatment_lfc": 0.0
+  },
+  "RPL26": {
+   "essential_lfc": -2.34,
+   "treatment_lfc": 0.0
+  },
+  "RPL27": {
+   "essential_lfc": -2.985,
+   "treatment_lfc": 0.0
+  },
+  "RPL27A": {
+   "essential_lfc": -1.757,
+   "treatment_lfc": 0.0
+  },
+  "RPL28": {
+   "essential_lfc": -2.133,
+   "treatment_lfc": 0.0
+  },
+  "RPL29": {
+   "essential_lfc": -1.669,
+   "treatment_lfc": 0.0
+  },
+  "RPL30": {
+   "essential_lfc": -3.203,
+   "treatment_lfc": 0.0
+  },
+  "RPL31": {
+   "essential_lfc": -2.879,
+   "treatment_lfc": 0.0
+  },
+  "RPL32": {
+   "essential_lfc": -2.283,
+   "treatment_lfc": 0.0
+  },
+  "RPL34": {
+   "essential_lfc": -3.542,
+   "treatment_lfc": 0.0
+  },
+  "RPL35": {
+   "essential_lfc": -2.589,
+   "treatment_lfc": 0.0
+  },
+  "RPL35A": {
+   "essential_lfc": -1.924,
+   "treatment_lfc": 0.0
+  },
+  "RPL36": {
+   "essential_lfc": -3.475,
+   "treatment_lfc": 0.0
+  },
+  "RPL37": {
+   "essential_lfc": -2.731,
+   "treatment_lfc": 0.0
+  },
+  "RPL37A": {
+   "essential_lfc": -2.043,
+   "treatment_lfc": 0.0
+  },
+  "RPL38": {
+   "essential_lfc": -3.233,
+   "treatment_lfc": 0.0
+  },
+  "RPS2": {
+   "essential_lfc": -2.793,
+   "treatment_lfc": 0.0
+  },
+  "RPS3": {
+   "essential_lfc": -2.7,
+   "treatment_lfc": 0.0
+  },
+  "RPS3A": {
+   "essential_lfc": -2.566,
+   "treatment_lfc": 0.0
+  },
+  "RPS4X": {
+   "essential_lfc": -2.736,
+   "treatment_lfc": 0.0
+  },
+  "RPS5": {
+   "essential_lfc": -2.559,
+   "treatment_lfc": 0.0
+  },
+  "RPS6": {
+   "essential_lfc": -2.0,
+   "treatment_lfc": 0.0
+  },
+  "RPS7": {
+   "essential_lfc": -1.851,
+   "treatment_lfc": 0.0
+  },
+  "RPS8": {
+   "essential_lfc": -1.963,
+   "treatment_lfc": 0.0
+  },
+  "RPS9": {
+   "essential_lfc": -2.201,
+   "treatment_lfc": 0.0
+  },
+  "RPS11": {
+   "essential_lfc": -2.472,
+   "treatment_lfc": 0.0
+  },
+  "RPS12": {
+   "essential_lfc": -3.173,
+   "treatment_lfc": 0.0
+  },
+  "RPS13": {
+   "essential_lfc": -1.791,
+   "treatment_lfc": 0.0
+  },
+  "RPS14": {
+   "essential_lfc": -3.403,
+   "treatment_lfc": 0.0
+  },
+  "RPS15": {
+   "essential_lfc": -2.637,
+   "treatment_lfc": 0.0
+  },
+  "RPS15A": {
+   "essential_lfc": -3.128,
+   "treatment_lfc": 0.0
+  },
+  "RPS16": {
+   "essential_lfc": -1.734,
+   "treatment_lfc": 0.0
+  },
+  "RPS18": {
+   "essential_lfc": -1.645,
+   "treatment_lfc": 0.0
+  },
+  "RPS19": {
+   "essential_lfc": -2.988,
+   "treatment_lfc": 0.0
+  },
+  "RPS20": {
+   "essential_lfc": -3.506,
+   "treatment_lfc": 0.0
+  },
+  "RPS21": {
+   "essential_lfc": -1.684,
+   "treatment_lfc": 0.0
+  },
+  "RPS23": {
+   "essential_lfc": -2.898,
+   "treatment_lfc": 0.0
+  },
+  "RPS24": {
+   "essential_lfc": -3.242,
+   "treatment_lfc": 0.0
+  },
+  "RPS25": {
+   "essential_lfc": -2.077,
+   "treatment_lfc": 0.0
+  },
+  "RPS26": {
+   "essential_lfc": -3.025,
+   "treatment_lfc": 0.0
+  },
+  "RPS27A": {
+   "essential_lfc": -3.432,
+   "treatment_lfc": 0.0
+  },
+  "RPS28": {
+   "essential_lfc": -3.593,
+   "treatment_lfc": 0.0
+  },
+  "RPS29": {
+   "essential_lfc": -2.395,
+   "treatment_lfc": 0.0
+  },
+  "PSMA1": {
+   "essential_lfc": -3.205,
+   "treatment_lfc": 0.0
+  },
+  "PSMA2": {
+   "essential_lfc": -2.079,
+   "treatment_lfc": 0.0
+  },
+  "PSMA3": {
+   "essential_lfc": -3.073,
+   "treatment_lfc": 0.0
+  },
+  "PSMA4": {
+   "essential_lfc": -3.197,
+   "treatment_lfc": 0.0
+  },
+  "PSMA5": {
+   "essential_lfc": -1.635,
+   "treatment_lfc": 0.0
+  },
+  "PSMA6": {
+   "essential_lfc": -2.378,
+   "treatment_lfc": 0.0
+  },
+  "PSMA7": {
+   "essential_lfc": -2.828,
+   "treatment_lfc": 0.0
+  },
+  "PSMB1": {
+   "essential_lfc": -2.674,
+   "treatment_lfc": 0.0
+  },
+  "PSMB2": {
+   "essential_lfc": -3.542,
+   "treatment_lfc": 0.0
+  },
+  "PSMB3": {
+   "essential_lfc": -1.978,
+   "treatment_lfc": 0.0
+  },
+  "PSMB4": {
+   "essential_lfc": -3.541,
+   "treatment_lfc": 0.0
+  },
+  "PSMB5": {
+   "essential_lfc": -1.986,
+   "treatment_lfc": 0.0
+  },
+  "PSMB6": {
+   "essential_lfc": -2.71,
+   "treatment_lfc": 0.0
+  },
+  "PSMB7": {
+   "essential_lfc": -3.04,
+   "treatment_lfc": 0.0
+  },
+  "PSMC1": {
+   "essential_lfc": -2.845,
+   "treatment_lfc": 0.0
+  },
+  "PSMC2": {
+   "essential_lfc": -2.3,
+   "treatment_lfc": 0.0
+  },
+  "PSMC3": {
+   "essential_lfc": -2.963,
+   "treatment_lfc": 0.0
+  },
+  "PSMC4": {
+   "essential_lfc": -2.487,
+   "treatment_lfc": 0.0
+  },
+  "PSMC5": {
+   "essential_lfc": -3.209,
+   "treatment_lfc": 0.0
+  },
+  "PSMC6": {
+   "essential_lfc": -3.449,
+   "treatment_lfc": 0.0
+  },
+  "PSMD1": {
+   "essential_lfc": -3.47,
+   "treatment_lfc": 0.0
+  },
+  "PSMD2": {
+   "essential_lfc": -3.475,
+   "treatment_lfc": 0.0
+  },
+  "PSMD3": {
+   "essential_lfc": -3.192,
+   "treatment_lfc": 0.0
+  },
+  "PSMD4": {
+   "essential_lfc": -1.611,
+   "treatment_lfc": 0.0
+  },
+  "PSMD6": {
+   "essential_lfc": -3.424,
+   "treatment_lfc": 0.0
+  },
+  "PSMD7": {
+   "essential_lfc": -2.769,
+   "treatment_lfc": 0.0
+  },
+  "PSMD8": {
+   "essential_lfc": -3.428,
+   "treatment_lfc": 0.0
+  },
+  "PSMD11": {
+   "essential_lfc": -1.979,
+   "treatment_lfc": 0.0
+  },
+  "PSMD12": {
+   "essential_lfc": -3.55,
+   "treatment_lfc": 0.0
+  },
+  "PSMD14": {
+   "essential_lfc": -3.055,
+   "treatment_lfc": 0.0
+  },
+  "POLR2A": {
+   "essential_lfc": -1.632,
+   "treatment_lfc": 0.0
+  },
+  "POLR2B": {
+   "essential_lfc": -3.38,
+   "treatment_lfc": 0.0
+  },
+  "POLR2C": {
+   "essential_lfc": -2.592,
+   "treatment_lfc": 0.0
+  },
+  "POLR2D": {
+   "essential_lfc": -3.559,
+   "treatment_lfc": 0.0
+  },
+  "POLR2E": {
+   "essential_lfc": -3.21,
+   "treatment_lfc": 0.0
+  },
+  "POLR2F": {
+   "essential_lfc": -3.532,
+   "treatment_lfc": 0.0
+  },
+  "POLR2G": {
+   "essential_lfc": -3.264,
+   "treatment_lfc": 0.0
+  },
+  "POLR2H": {
+   "essential_lfc": -2.35,
+   "treatment_lfc": 0.0
+  },
+  "POLR2I": {
+   "essential_lfc": -2.716,
+   "treatment_lfc": 0.0
+  },
+  "POLR2J": {
+   "essential_lfc": -3.334,
+   "treatment_lfc": 0.0
+  },
+  "POLR2L": {
+   "essential_lfc": -2.88,
+   "treatment_lfc": 0.0
+  },
+  "SF3B1": {
+   "essential_lfc": -2.123,
+   "treatment_lfc": 0.0
+  },
+  "SF3B2": {
+   "essential_lfc": -1.784,
+   "treatment_lfc": 0.0
+  },
+  "SF3B3": {
+   "essential_lfc": -3.078,
+   "treatment_lfc": 0.0
+  },
+  "SF3A1": {
+   "essential_lfc": -2.676,
+   "treatment_lfc": 0.0
+  },
+  "SF3A3": {
+   "essential_lfc": -2.234,
+   "treatment_lfc": 0.0
+  },
+  "SNRPD1": {
+   "essential_lfc": -2.44,
+   "treatment_lfc": 0.0
+  },
+  "SNRPD2": {
+   "essential_lfc": -2.513,
+   "treatment_lfc": 0.0
+  },
+  "SNRPD3": {
+   "essential_lfc": -1.872,
+   "treatment_lfc": 0.0
+  },
+  "SNRPE": {
+   "essential_lfc": -3.066,
+   "treatment_lfc": 0.0
+  },
+  "SNRPF": {
+   "essential_lfc": -2.887,
+   "treatment_lfc": 0.0
+  },
+  "PRPF8": {
+   "essential_lfc": -2.334,
+   "treatment_lfc": 0.0
+  },
+  "PRPF19": {
+   "essential_lfc": -1.886,
+   "treatment_lfc": 0.0
+  },
+  "U2AF1": {
+   "essential_lfc": -2.935,
+   "treatment_lfc": 0.0
+  },
+  "U2AF2": {
+   "essential_lfc": -3.0,
+   "treatment_lfc": 0.0
+  },
+  "CDK1": {
+   "essential_lfc": -2.466,
+   "treatment_lfc": 0.0
+  },
+  "PLK1": {
+   "essential_lfc": -1.728,
+   "treatment_lfc": 0.0
+  },
+  "AURKB": {
+   "essential_lfc": -3.176,
+   "treatment_lfc": 0.0
+  },
+  "MCM2": {
+   "essential_lfc": -2.196,
+   "treatment_lfc": 0.0
+  },
+  "MCM3": {
+   "essential_lfc": -2.867,
+   "treatment_lfc": 0.0
+  },
+  "MCM4": {
+   "essential_lfc": -1.692,
+   "treatment_lfc": 0.0
+  },
+  "MCM5": {
+   "essential_lfc": -2.24,
+   "treatment_lfc": 0.0
+  },
+  "MCM6": {
+   "essential_lfc": -3.001,
+   "treatment_lfc": 0.0
+  },
+  "MCM7": {
+   "essential_lfc": -2.393,
+   "treatment_lfc": 0.0
+  },
+  "PCNA": {
+   "essential_lfc": -2.953,
+   "treatment_lfc": 0.0
+  },
+  "RFC2": {
+   "essential_lfc": -3.039,
+   "treatment_lfc": 0.0
+  },
+  "RFC4": {
+   "essential_lfc": -1.788,
+   "treatment_lfc": 0.0
+  },
+  "POLA1": {
+   "essential_lfc": -3.131,
+   "treatment_lfc": 0.0
+  },
+  "POLD1": {
+   "essential_lfc": -1.895,
+   "treatment_lfc": 0.0
+  },
+  "POLE": {
+   "essential_lfc": -1.918,
+   "treatment_lfc": 0.0
+  },
+  "RRM1": {
+   "essential_lfc": -2.603,
+   "treatment_lfc": 0.0
+  },
+  "RRM2": {
+   "essential_lfc": -3.431,
+   "treatment_lfc": 0.0
+  },
+  "KIF11": {
+   "essential_lfc": -3.061,
+   "treatment_lfc": 0.0
+  },
+  "CCNA2": {
+   "essential_lfc": -2.318,
+   "treatment_lfc": 0.0
+  },
+  "BUB1B": {
+   "essential_lfc": -3.292,
+   "treatment_lfc": 0.0
+  },
+  "EIF2S1": {
+   "essential_lfc": -2.36,
+   "treatment_lfc": 0.0
+  },
+  "EIF3A": {
+   "essential_lfc": -2.689,
+   "treatment_lfc": 0.0
+  },
+  "EIF3B": {
+   "essential_lfc": -2.937,
+   "treatment_lfc": 0.0
+  },
+  "EIF3D": {
+   "essential_lfc": -2.187,
+   "treatment_lfc": 0.0
+  },
+  "EIF4A3": {
+   "essential_lfc": -2.056,
+   "treatment_lfc": 0.0
+  },
+  "EEF2": {
+   "essential_lfc": -2.636,
+   "treatment_lfc": 0.0
+  },
+  "EEF1A1": {
+   "essential_lfc": -3.299,
+   "treatment_lfc": 0.0
+  },
+  "MLH1": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": 1.904
+  },
+  "MSH2": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": 2.446
+  },
+  "MSH6": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": 2.556
+  },
+  "PMS2": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": 1.781
+  },
+  "PMS1": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": 2.127
+  },
+  "EXO1": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": 2.698
+  },
+  "MLH3": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": 2.896
+  },
+  "SLFN11": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": 1.97
+  },
+  "TP53": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": 1.917
+  },
+  "BAX": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": 1.998
+  },
+  "CDKN1A": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": 2.041
+  },
+  "APAF1": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": 2.609
+  },
+  "MGMT": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -2.564
+  },
+  "BRCA1": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -2.39
+  },
+  "BRCA2": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -1.852
+  },
+  "PALB2": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -2.815
+  },
+  "RAD51C": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -1.701
+  },
+  "RAD51D": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -2.141
+  },
+  "XRCC2": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -1.895
+  },
+  "XRCC3": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -2.293
+  },
+  "FANCA": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -2.979
+  },
+  "FANCD2": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -1.417
+  },
+  "FANCI": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -1.821
+  },
+  "FANCL": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -2.83
+  },
+  "UBE2T": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -2.507
+  },
+  "RAD18": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -1.577
+  },
+  "REV1": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -1.517
+  },
+  "REV3L": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -2.95
+  },
+  "XRCC1": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -2.709
+  },
+  "POLB": {
+   "essential_lfc": 0.0,
+   "treatment_lfc": -2.623
+  },
+  "HX0014": {
+   "essential_lfc": -0.392,
+   "treatment_lfc": 0.0
+  },
+  "HX0060": {
+   "essential_lfc": -0.648,
+   "treatment_lfc": 0.0
+  },
+  "HX0079": {
+   "essential_lfc": -0.396,
+   "treatment_lfc": 0.0
+  },
+  "HX0091": {
+   "essential_lfc": -0.934,
+   "treatment_lfc": 0.0
+  },
+  "HX0114": {
+   "essential_lfc": -0.792,
+   "treatment_lfc": 0.0
+  },
+  "HX0125": {
+   "essential_lfc": -0.907,
+   "treatment_lfc": 0.0
+  },
+  "HX0142": {
+   "essential_lfc": -0.868,
+   "treatment_lfc": 0.0
+  },
+  "HX0143": {
+   "essential_lfc": -0.559,
+   "treatment_lfc": 0.0
+  },
+  "HX0167": {
+   "essential_lfc": -0.419,
+   "treatment_lfc": 0.0
+  },
+  "HX0198": {
+   "essential_lfc": -0.962,
+   "treatment_lfc": 0.0
+  },
+  "HX0214": {
+   "essential_lfc": -0.577,
+   "treatment_lfc": 0.0
+  },
+  "HX0225": {
+   "essential_lfc": -0.57,
+   "treatment_lfc": 0.0
+  },
+  "HX0234": {
+   "essential_lfc": -0.496,
+   "treatment_lfc": 0.0
+  },
+  "HX0243": {
+   "essential_lfc": -0.985,
+   "treatment_lfc": 0.0
+  },
+  "HX0244": {
+   "essential_lfc": -0.475,
+   "treatment_lfc": 0.0
+  },
+  "HX0267": {
+   "essential_lfc": -0.952,
+   "treatment_lfc": 0.0
+  },
+  "HX0269": {
+   "essential_lfc": -0.372,
+   "treatment_lfc": 0.0
+  },
+  "HX0297": {
+   "essential_lfc": -0.371,
+   "treatment_lfc": 0.0
+  },
+  "HX0305": {
+   "essential_lfc": -0.731,
+   "treatment_lfc": 0.0
+  },
+  "HX0311": {
+   "essential_lfc": -0.903,
+   "treatment_lfc": 0.0
+  },
+  "HX0316": {
+   "essential_lfc": -0.772,
+   "treatment_lfc": 0.0
+  },
+  "HX0325": {
+   "essential_lfc": -0.769,
+   "treatment_lfc": 0.0
+  },
+  "HX0328": {
+   "essential_lfc": -0.37,
+   "treatment_lfc": 0.0
+  },
+  "HX0347": {
+   "essential_lfc": -0.549,
+   "treatment_lfc": 0.0
+  },
+  "HX0350": {
+   "essential_lfc": -0.394,
+   "treatment_lfc": 0.0
+  },
+  "HX0351": {
+   "essential_lfc": -0.754,
+   "treatment_lfc": 0.0
+  },
+  "HX0356": {
+   "essential_lfc": -0.73,
+   "treatment_lfc": 0.0
+  },
+  "HX0368": {
+   "essential_lfc": -0.354,
+   "treatment_lfc": 0.0
+  },
+  "HX0371": {
+   "essential_lfc": -0.376,
+   "treatment_lfc": 0.0
+  },
+  "HX0382": {
+   "essential_lfc": -0.537,
+   "treatment_lfc": 0.0
+  },
+  "HX0397": {
+   "essential_lfc": -0.932,
+   "treatment_lfc": 0.0
+  },
+  "HX0405": {
+   "essential_lfc": -0.812,
+   "treatment_lfc": 0.0
+  },
+  "HX0437": {
+   "essential_lfc": -0.602,
+   "treatment_lfc": 0.0
+  },
+  "HX0467": {
+   "essential_lfc": -0.397,
+   "treatment_lfc": 0.0
+  },
+  "HX0532": {
+   "essential_lfc": -0.719,
+   "treatment_lfc": 0.0
+  },
+  "HX0533": {
+   "essential_lfc": -0.488,
+   "treatment_lfc": 0.0
+  },
+  "HX0570": {
+   "essential_lfc": -0.99,
+   "treatment_lfc": 0.0
+  },
+  "HX0574": {
+   "essential_lfc": -0.573,
+   "treatment_lfc": 0.0
+  },
+  "HX0584": {
+   "essential_lfc": -0.59,
+   "treatment_lfc": 0.0
+  },
+  "HX0605": {
+   "essential_lfc": -0.488,
+   "treatment_lfc": 0.0
+  },
+  "HX0613": {
+   "essential_lfc": -0.558,
+   "treatment_lfc": 0.0
+  },
+  "HX0628": {
+   "essential_lfc": -0.645,
+   "treatment_lfc": 0.0
+  },
+  "HX0629": {
+   "essential_lfc": -0.398,
+   "treatment_lfc": 0.0
+  },
+  "HX0646": {
+   "essential_lfc": -0.678,
+   "treatment_lfc": 0.0
+  },
+  "HX0664": {
+   "essential_lfc": -0.926,
+   "treatment_lfc": 0.0
+  },
+  "HX0668": {
+   "essential_lfc": -0.465,
+   "treatment_lfc": 0.0
+  },
+  "HX0739": {
+   "essential_lfc": -0.576,
+   "treatment_lfc": 0.0
+  },
+  "HX0748": {
+   "essential_lfc": -0.875,
+   "treatment_lfc": 0.0
+  },
+  "HX0752": {
+   "essential_lfc": -0.853,
+   "treatment_lfc": 0.0
+  },
+  "HX0767": {
+   "essential_lfc": -0.828,
+   "treatment_lfc": 0.0
+  },
+  "HX0821": {
+   "essential_lfc": -0.777,
+   "treatment_lfc": 0.0
+  },
+  "HX0829": {
+   "essential_lfc": -0.444,
+   "treatment_lfc": 0.0
+  },
+  "HX0848": {
+   "essential_lfc": -0.693,
+   "treatment_lfc": 0.0
+  },
+  "HX0851": {
+   "essential_lfc": -0.644,
+   "treatment_lfc": 0.0
+  },
+  "HX0876": {
+   "essential_lfc": -0.866,
+   "treatment_lfc": 0.0
+  },
+  "HX0895": {
+   "essential_lfc": -0.832,
+   "treatment_lfc": 0.0
+  },
+  "HX0899": {
+   "essential_lfc": -0.512,
+   "treatment_lfc": 0.0
+  },
+  "HX0900": {
+   "essential_lfc": -0.371,
+   "treatment_lfc": 0.0
+  },
+  "HX0904": {
+   "essential_lfc": -0.507,
+   "treatment_lfc": 0.0
+  },
+  "HX0955": {
+   "essential_lfc": -0.64,
+   "treatment_lfc": 0.0
+  },
+  "HX1014": {
+   "essential_lfc": -0.641,
+   "treatment_lfc": 0.0
+  },
+  "HX1025": {
+   "essential_lfc": -0.47,
+   "treatment_lfc": 0.0
+  },
+  "HX1027": {
+   "essential_lfc": -0.532,
+   "treatment_lfc": 0.0
+  },
+  "HX1028": {
+   "essential_lfc": -0.957,
+   "treatment_lfc": 0.0
+  },
+  "HX1031": {
+   "essential_lfc": -0.445,
+   "treatment_lfc": 0.0
+  },
+  "HX1076": {
+   "essential_lfc": -0.772,
+   "treatment_lfc": 0.0
+  },
+  "HX1083": {
+   "essential_lfc": -0.54,
+   "treatment_lfc": 0.0
+  },
+  "HX1093": {
+   "essential_lfc": -0.861,
+   "treatment_lfc": 0.0
+  },
+  "HX1105": {
+   "essential_lfc": -0.822,
+   "treatment_lfc": 0.0
+  },
+  "HX1128": {
+   "essential_lfc": -0.953,
+   "treatment_lfc": 0.0
+  },
+  "HX1139": {
+   "essential_lfc": -0.718,
+   "treatment_lfc": 0.0
+  },
+  "HX1167": {
+   "essential_lfc": -0.655,
+   "treatment_lfc": 0.0
+  },
+  "HX1238": {
+   "essential_lfc": -0.405,
+   "treatment_lfc": 0.0
+  },
+  "HX1241": {
+   "essential_lfc": -0.618,
+   "treatment_lfc": 0.0
+  },
+  "HX1258": {
+   "essential_lfc": -0.947,
+   "treatment_lfc": 0.0
+  },
+  "HX1259": {
+   "essential_lfc": -0.647,
+   "treatment_lfc": 0.0
+  },
+  "HX1275": {
+   "essential_lfc": -0.87,
+   "treatment_lfc": 0.0
+  },
+  "HX1290": {
+   "essential_lfc": -0.433,
+   "treatment_lfc": 0.0
+  },
+  "HX1307": {
+   "essential_lfc": -0.962,
+   "treatment_lfc": 0.0
+  },
+  "HX1355": {
+   "essential_lfc": -0.521,
+   "treatment_lfc": 0.0
+  },
+  "HX1394": {
+   "essential_lfc": -0.38,
+   "treatment_lfc": 0.0
+  },
+  "HX1404": {
+   "essential_lfc": -0.707,
+   "treatment_lfc": 0.0
+  },
+  "HX1423": {
+   "essential_lfc": -0.708,
+   "treatment_lfc": 0.0
+  },
+  "HX1424": {
+   "essential_lfc": -0.713,
+   "treatment_lfc": 0.0
+  },
+  "HX1430": {
+   "essential_lfc": -0.38,
+   "treatment_lfc": 0.0
+  },
+  "HX1452": {
+   "essential_lfc": -0.792,
+   "treatment_lfc": 0.0
+  },
+  "HX1471": {
+   "essential_lfc": -0.672,
+   "treatment_lfc": 0.0
+  },
+  "HX1489": {
+   "essential_lfc": -0.69,
+   "treatment_lfc": 0.0
+  },
+  "HX1498": {
+   "essential_lfc": -0.563,
+   "treatment_lfc": 0.0
+  },
+  "HX1507": {
+   "essential_lfc": -0.402,
+   "treatment_lfc": 0.0
+  },
+  "HX1546": {
+   "essential_lfc": -0.416,
+   "treatment_lfc": 0.0
+  },
+  "HX1550": {
+   "essential_lfc": -0.825,
+   "treatment_lfc": 0.0
+  },
+  "HX1610": {
+   "essential_lfc": -0.944,
+   "treatment_lfc": 0.0
+  },
+  "HX1617": {
+   "essential_lfc": -0.531,
+   "treatment_lfc": 0.0
+  },
+  "HX1621": {
+   "essential_lfc": -0.35,
+   "treatment_lfc": 0.0
+  },
+  "HX1638": {
+   "essential_lfc": -0.38,
+   "treatment_lfc": 0.0
+  },
+  "HX1645": {
+   "essential_lfc": -0.769,
+   "treatment_lfc": 0.0
+  },
+  "HX1652": {
+   "essential_lfc": -0.439,
+   "treatment_lfc": 0.0
+  },
+  "HX1705": {
+   "essential_lfc": -0.456,
+   "treatment_lfc": 0.0
+  },
+  "HX1717": {
+   "essential_lfc": -0.925,
+   "treatment_lfc": 0.0
+  }
+ },
+ "enriched_pathway_resistance": "MISMATCH_REPAIR",
+ "depth": {
+  "plasmid": 4000000,
+  "day0": 3600000,
+  "treat_rep1": 6500000,
+  "treat_rep2": 900000,
+  "ctrl_rep1": 3200000,
+  "ctrl_rep2": 3000000
+ }
+}

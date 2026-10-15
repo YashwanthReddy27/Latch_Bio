@@ -1,0 +1,105 @@
+{
+ "id": "T08",
+ "title": "Resistance genes",
+ "category": "problem_interpretation",
+ "difficulty": "medium",
+ "prompt": "Rank genes whose knockout confers RESISTANCE to helixin. Return the top 15 genes, most confident first.",
+ "answer_schema": {
+  "type": "object",
+  "required": [
+   "genes"
+  ],
+  "properties": {
+   "genes": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "grader": {
+  "checks": [
+   {
+    "id": "recovery",
+    "kind": "set_overlap",
+    "path": "genes",
+    "truth": [
+     "APAF1",
+     "BAX",
+     "CDKN1A",
+     "EXO1",
+     "MLH1",
+     "MLH3",
+     "MSH2",
+     "MSH6",
+     "PMS1",
+     "PMS2",
+     "SLFN11",
+     "TP53"
+    ],
+    "min_recall": 0.75,
+    "min_precision": 0.6,
+    "max_items": 15,
+    "label": "Planted resistance genes"
+   }
+  ]
+ },
+ "grader_plain": "At most 15 genes; at least 9 of the 12 planted resistance genes (recall \u2265 0.75) and precision \u2265 0.6. Resistance = ENRICHED in treatment vs vehicle; ranking by depletion returns the sensitizers and scores 0.",
+ "traps": [
+  "Direction of selection (enriched vs depleted)"
+ ],
+ "milestones": [
+  "load",
+  "qc_coverage",
+  "exclude_bad",
+  "normalize",
+  "lfc",
+  "test",
+  "interpret",
+  "submit"
+ ],
+ "context": "You are analyzing a pooled CRISPR knockout screen. The workspace contains raw sgRNA read counts (counts.tsv), a sample sheet, gene sets and a short design document (design.md). Read design.md first.",
+ "inputs": [
+  "counts.tsv",
+  "samples.tsv",
+  "pathways.gmt",
+  "common_essentials.txt",
+  "design.md"
+ ],
+ "reference_answer": {
+  "genes": [
+   "APAF1",
+   "PMS1",
+   "MSH6",
+   "EXO1",
+   "MSH2",
+   "SLFN11",
+   "MLH3",
+   "BAX",
+   "CDKN1A",
+   "MLH1",
+   "TP53",
+   "PMS2",
+   "HX0810",
+   "HX1597",
+   "HX0531"
+  ]
+ },
+ "ground_truth": {
+  "planted_resistance": [
+   "APAF1",
+   "BAX",
+   "CDKN1A",
+   "EXO1",
+   "MLH1",
+   "MLH3",
+   "MSH2",
+   "MSH6",
+   "PMS1",
+   "PMS2",
+   "SLFN11",
+   "TP53"
+  ]
+ }
+}

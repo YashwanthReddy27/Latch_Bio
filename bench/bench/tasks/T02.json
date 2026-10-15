@@ -1,0 +1,68 @@
+{
+ "id": "T02",
+ "title": "Gini index per sample",
+ "category": "qc",
+ "difficulty": "easy",
+ "prompt": "Compute the Gini index of sgRNA read counts for each of the six samples (use raw counts of all sgRNAs, including zero-count guides).",
+ "answer_schema": {
+  "type": "object",
+  "required": [
+   "gini"
+  ],
+  "properties": {
+   "gini": {
+    "type": "object",
+    "additionalProperties": {
+     "type": "number"
+    }
+   }
+  }
+ },
+ "grader": {
+  "checks": [
+   {
+    "id": "gini",
+    "kind": "numeric_map",
+    "path": "gini",
+    "values": {
+     "plasmid": 0.2647,
+     "day0": 0.2717,
+     "treat_rep1": 0.3235,
+     "treat_rep2": 0.4046,
+     "ctrl_rep1": 0.3146,
+     "ctrl_rep2": 0.3113
+    },
+    "abs_tol": 0.02,
+    "label": "Gini per sample"
+   }
+  ]
+ },
+ "grader_plain": "All six Gini indices must be within \u00b10.02 of the reference computed on raw counts. Computing it on log counts gives values near 0.05 and fails.",
+ "traps": [
+  "Gini on log-transformed counts"
+ ],
+ "milestones": [
+  "load",
+  "qc_coverage",
+  "submit"
+ ],
+ "context": "You are analyzing a pooled CRISPR knockout screen. The workspace contains raw sgRNA read counts (counts.tsv), a sample sheet, gene sets and a short design document (design.md). Read design.md first.",
+ "inputs": [
+  "counts.tsv",
+  "samples.tsv",
+  "pathways.gmt",
+  "common_essentials.txt",
+  "design.md"
+ ],
+ "reference_answer": {
+  "gini": {
+   "plasmid": 0.2647,
+   "day0": 0.2717,
+   "treat_rep1": 0.3235,
+   "treat_rep2": 0.4046,
+   "ctrl_rep1": 0.3146,
+   "ctrl_rep2": 0.3113
+  }
+ },
+ "ground_truth": {}
+}

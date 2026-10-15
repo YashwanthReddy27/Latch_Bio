@@ -1,0 +1,87 @@
+{
+ "id": "T04",
+ "title": "Library representation",
+ "category": "qc",
+ "difficulty": "easy",
+ "prompt": "Report the mean number of reads per sgRNA for each sample, and list the samples that fall below the 200x per-sgRNA coverage target.",
+ "answer_schema": {
+  "type": "object",
+  "required": [
+   "reads_per_guide",
+   "below_200x"
+  ],
+  "properties": {
+   "reads_per_guide": {
+    "type": "object",
+    "additionalProperties": {
+     "type": "number"
+    }
+   },
+   "below_200x": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "grader": {
+  "checks": [
+   {
+    "id": "reads_per_guide",
+    "kind": "numeric_map",
+    "path": "reads_per_guide",
+    "values": {
+     "plasmid": 488.0,
+     "day0": 440.4,
+     "treat_rep1": 793.6,
+     "treat_rep2": 110.1,
+     "ctrl_rep1": 391.1,
+     "ctrl_rep2": 365.3
+    },
+    "abs_tol": 10.0,
+    "label": "Reads per sgRNA"
+   },
+   {
+    "id": "below_200x",
+    "kind": "set_equal",
+    "path": "below_200x",
+    "values": [
+     "treat_rep2"
+    ],
+    "label": "Samples below 200x"
+   }
+  ]
+ },
+ "grader_plain": "Reads per sgRNA within \u00b110 of the reference for every sample, and the set of under-covered samples must match exactly (treat_rep2). Dividing by number of genes instead of sgRNAs inflates coverage 4x.",
+ "traps": [
+  "Per-gene vs per-sgRNA coverage"
+ ],
+ "milestones": [
+  "load",
+  "qc_coverage",
+  "submit"
+ ],
+ "context": "You are analyzing a pooled CRISPR knockout screen. The workspace contains raw sgRNA read counts (counts.tsv), a sample sheet, gene sets and a short design document (design.md). Read design.md first.",
+ "inputs": [
+  "counts.tsv",
+  "samples.tsv",
+  "pathways.gmt",
+  "common_essentials.txt",
+  "design.md"
+ ],
+ "reference_answer": {
+  "reads_per_guide": {
+   "plasmid": 488.0,
+   "day0": 440.4,
+   "treat_rep1": 793.6,
+   "treat_rep2": 110.1,
+   "ctrl_rep1": 391.1,
+   "ctrl_rep2": 365.3
+  },
+  "below_200x": [
+   "treat_rep2"
+  ]
+ },
+ "ground_truth": {}
+}

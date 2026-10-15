@@ -1,0 +1,56 @@
+{
+ "id": "T07",
+ "title": "FDR-controlled hit count",
+ "category": "statistical_reasoning",
+ "difficulty": "hard",
+ "prompt": "How many genes are significantly ENRICHED in helixin treatment relative to vehicle control at a false discovery rate below 10%? Test at the gene level using all sgRNAs for each gene.",
+ "answer_schema": {
+  "type": "object",
+  "required": [
+   "n_significant"
+  ],
+  "properties": {
+   "n_significant": {
+    "type": "integer"
+   }
+  }
+ },
+ "grader": {
+  "checks": [
+   {
+    "id": "n_significant",
+    "kind": "range",
+    "path": "n_significant",
+    "min": 8,
+    "max": 24,
+    "label": "Significant genes"
+   }
+  ]
+ },
+ "grader_plain": "Count must fall in [8, 24] (reference: 15; 12 resistance genes are planted). The range admits different sound tests (z vs non-targeting null, t-test, rank-based) but excludes uncorrected p < 0.1, which yields ~200.",
+ "traps": [
+  "No multiple-testing correction"
+ ],
+ "milestones": [
+  "load",
+  "qc_coverage",
+  "exclude_bad",
+  "normalize",
+  "lfc",
+  "test",
+  "fdr",
+  "submit"
+ ],
+ "context": "You are analyzing a pooled CRISPR knockout screen. The workspace contains raw sgRNA read counts (counts.tsv), a sample sheet, gene sets and a short design document (design.md). Read design.md first.",
+ "inputs": [
+  "counts.tsv",
+  "samples.tsv",
+  "pathways.gmt",
+  "common_essentials.txt",
+  "design.md"
+ ],
+ "reference_answer": {
+  "n_significant": 15
+ },
+ "ground_truth": {}
+}
