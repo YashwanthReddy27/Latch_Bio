@@ -1,0 +1,3509 @@
+[
+ {
+  "task_id": "T01",
+  "name": "reference",
+  "answer": {
+   "zero_in_plasmid": 40,
+   "zero_in_all": 40
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T01",
+  "name": "mistake:zero_any_sample",
+  "answer": {
+   "zero_in_plasmid": 40,
+   "zero_in_all": 454
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.5,
+   "error_kind": null,
+   "checks": [
+    true,
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T01",
+  "name": "mistake:format_error",
+  "answer": {
+   "zero_guides": 40
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T01",
+  "name": "null answer",
+  "answer": null,
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "no_answer",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T01",
+  "name": "string answer",
+  "answer": "treat_rep2",
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T01",
+  "name": "empty object",
+  "answer": {},
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T01",
+  "name": "array answer",
+  "answer": [
+   {
+    "zero_in_plasmid": 40,
+    "zero_in_all": 40
+   }
+  ],
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T01",
+  "name": "wrong type for zero_in_plasmid",
+  "answer": {
+   "zero_in_plasmid": true,
+   "zero_in_all": 40
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T01",
+  "name": "wrong type for zero_in_all",
+  "answer": {
+   "zero_in_plasmid": 40,
+   "zero_in_all": true
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T02",
+  "name": "reference",
+  "answer": {
+   "gini": {
+    "plasmid": 0.2647,
+    "day0": 0.2717,
+    "treat_rep1": 0.3235,
+    "treat_rep2": 0.4046,
+    "ctrl_rep1": 0.3146,
+    "ctrl_rep2": 0.3113
+   }
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T02",
+  "name": "mistake:gini_on_log",
+  "answer": {
+   "gini": {
+    "plasmid": 0.0485,
+    "day0": 0.0505,
+    "treat_rep1": 0.0591,
+    "treat_rep2": 0.1417,
+    "ctrl_rep1": 0.0643,
+    "ctrl_rep2": 0.0641
+   }
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T02",
+  "name": "mistake:format_error",
+  "answer": {
+   "gini": [
+    0.2647,
+    0.2717,
+    0.3235,
+    0.4046,
+    0.3146,
+    0.3113
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T02",
+  "name": "null answer",
+  "answer": null,
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "no_answer",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T02",
+  "name": "string answer",
+  "answer": "treat_rep2",
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T02",
+  "name": "empty object",
+  "answer": {},
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T02",
+  "name": "array answer",
+  "answer": [
+   {
+    "gini": {
+     "plasmid": 0.2647,
+     "day0": 0.2717,
+     "treat_rep1": 0.3235,
+     "treat_rep2": 0.4046,
+     "ctrl_rep1": 0.3146,
+     "ctrl_rep2": 0.3113
+    }
+   }
+  ],
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T02",
+  "name": "wrong type for gini",
+  "answer": {
+   "gini": [
+    0.2647,
+    0.2717,
+    0.3235,
+    0.4046,
+    0.3146,
+    0.3113
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T03",
+  "name": "reference",
+  "answer": {
+   "sample": "treat_rep2",
+   "issue": "low_coverage_bottleneck"
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T03",
+  "name": "mistake:misread_bad_replicate",
+  "answer": {
+   "sample": "treat_rep2",
+   "issue": "sample_swap"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.5,
+   "error_kind": null,
+   "checks": [
+    true,
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T03",
+  "name": "mistake:format_error",
+  "answer": {
+   "bad_sample": "treat_rep2"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T03",
+  "name": "null answer",
+  "answer": null,
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "no_answer",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T03",
+  "name": "string answer",
+  "answer": "treat_rep2",
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T03",
+  "name": "empty object",
+  "answer": {},
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T03",
+  "name": "array answer",
+  "answer": [
+   {
+    "sample": "treat_rep2",
+    "issue": "low_coverage_bottleneck"
+   }
+  ],
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T03",
+  "name": "wrong type for sample",
+  "answer": {
+   "sample": [
+    "treat_rep2"
+   ],
+   "issue": "low_coverage_bottleneck"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T03",
+  "name": "wrong type for issue",
+  "answer": {
+   "sample": "treat_rep2",
+   "issue": [
+    "low_coverage_bottleneck"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T03",
+  "name": "lower-cased strings",
+  "answer": {
+   "sample": "treat_rep2",
+   "issue": "low_coverage_bottleneck"
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T04",
+  "name": "reference",
+  "answer": {
+   "reads_per_guide": {
+    "plasmid": 488.0,
+    "day0": 440.4,
+    "treat_rep1": 793.6,
+    "treat_rep2": 110.1,
+    "ctrl_rep1": 391.1,
+    "ctrl_rep2": 365.3
+   },
+   "below_200x": [
+    "treat_rep2"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T04",
+  "name": "mistake:per_gene_coverage",
+  "answer": {
+   "reads_per_guide": {
+    "plasmid": 1999.8,
+    "day0": 1804.8,
+    "treat_rep1": 3252.2,
+    "treat_rep2": 451.1,
+    "ctrl_rep1": 1602.7,
+    "ctrl_rep2": 1496.9
+   },
+   "below_200x": []
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false,
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T04",
+  "name": "mistake:format_error",
+  "answer": {
+   "coverage": {
+    "plasmid": 488.0,
+    "day0": 440.4,
+    "treat_rep1": 793.6,
+    "treat_rep2": 110.1,
+    "ctrl_rep1": 391.1,
+    "ctrl_rep2": 365.3
+   }
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T04",
+  "name": "null answer",
+  "answer": null,
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "no_answer",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T04",
+  "name": "string answer",
+  "answer": "treat_rep2",
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T04",
+  "name": "empty object",
+  "answer": {},
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T04",
+  "name": "array answer",
+  "answer": [
+   {
+    "reads_per_guide": {
+     "plasmid": 488.0,
+     "day0": 440.4,
+     "treat_rep1": 793.6,
+     "treat_rep2": 110.1,
+     "ctrl_rep1": 391.1,
+     "ctrl_rep2": 365.3
+    },
+    "below_200x": [
+     "treat_rep2"
+    ]
+   }
+  ],
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T04",
+  "name": "wrong type for reads_per_guide",
+  "answer": {
+   "reads_per_guide": [
+    488.0,
+    440.4,
+    793.6,
+    110.1,
+    391.1,
+    365.3
+   ],
+   "below_200x": [
+    "treat_rep2"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T04",
+  "name": "wrong type for below_200x",
+  "answer": {
+   "reads_per_guide": {
+    "plasmid": 488.0,
+    "day0": 440.4,
+    "treat_rep1": 793.6,
+    "treat_rep2": 110.1,
+    "ctrl_rep1": 391.1,
+    "ctrl_rep2": 365.3
+   },
+   "below_200x": "treat_rep2"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T05",
+  "name": "reference",
+  "answer": {
+   "lfc": {
+    "MLH1": 1.281,
+    "BRCA2": -1.264,
+    "RPL11": 0.364,
+    "MGMT": -1.69,
+    "HX0042": -0.068
+   }
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T05",
+  "name": "mistake:skip_normalization",
+  "answer": {
+   "lfc": {
+    "MLH1": 2.328,
+    "BRCA2": -0.21,
+    "RPL11": 1.422,
+    "MGMT": -0.645,
+    "HX0042": 0.987
+   }
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T05",
+  "name": "mistake:keep_bad_replicate",
+  "answer": {
+   "lfc": {
+    "MLH1": 1.393,
+    "BRCA2": -1.595,
+    "RPL11": 0.33,
+    "MGMT": -1.462,
+    "HX0042": -0.09
+   }
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T05",
+  "name": "mistake:compare_to_day0",
+  "answer": {
+   "lfc": {
+    "MLH1": 1.682,
+    "BRCA2": -1.356,
+    "RPL11": -1.641,
+    "MGMT": -1.647,
+    "HX0042": -0.001
+   }
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T05",
+  "name": "mistake:format_error",
+  "answer": {
+   "log2fc": {
+    "MLH1": 1.281,
+    "BRCA2": -1.264,
+    "RPL11": 0.364,
+    "MGMT": -1.69,
+    "HX0042": -0.068
+   }
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T05",
+  "name": "null answer",
+  "answer": null,
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "no_answer",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T05",
+  "name": "string answer",
+  "answer": "treat_rep2",
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T05",
+  "name": "empty object",
+  "answer": {},
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T05",
+  "name": "array answer",
+  "answer": [
+   {
+    "lfc": {
+     "MLH1": 1.281,
+     "BRCA2": -1.264,
+     "RPL11": 0.364,
+     "MGMT": -1.69,
+     "HX0042": -0.068
+    }
+   }
+  ],
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T05",
+  "name": "wrong type for lfc",
+  "answer": {
+   "lfc": [
+    1.281,
+    -1.264,
+    0.364,
+    -1.69,
+    -0.068
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T06",
+  "name": "reference",
+  "answer": {
+   "keep": [
+    "ctrl_rep1",
+    "ctrl_rep2",
+    "treat_rep1"
+   ],
+   "exclude": [
+    "treat_rep2"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T06",
+  "name": "mistake:keep_bad_replicate",
+  "answer": {
+   "keep": [
+    "ctrl_rep1",
+    "ctrl_rep2",
+    "treat_rep1",
+    "treat_rep2"
+   ],
+   "exclude": []
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false,
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T06",
+  "name": "mistake:format_error",
+  "answer": {
+   "keep": "ctrl_rep1,ctrl_rep2,treat_rep1"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T06",
+  "name": "null answer",
+  "answer": null,
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "no_answer",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T06",
+  "name": "string answer",
+  "answer": "treat_rep2",
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T06",
+  "name": "empty object",
+  "answer": {},
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T06",
+  "name": "array answer",
+  "answer": [
+   {
+    "keep": [
+     "ctrl_rep1",
+     "ctrl_rep2",
+     "treat_rep1"
+    ],
+    "exclude": [
+     "treat_rep2"
+    ]
+   }
+  ],
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T06",
+  "name": "wrong type for keep",
+  "answer": {
+   "keep": "ctrl_rep1,ctrl_rep2,treat_rep1",
+   "exclude": [
+    "treat_rep2"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T06",
+  "name": "wrong type for exclude",
+  "answer": {
+   "keep": [
+    "ctrl_rep1",
+    "ctrl_rep2",
+    "treat_rep1"
+   ],
+   "exclude": "treat_rep2"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T06",
+  "name": "lower-cased strings",
+  "answer": {
+   "keep": [
+    "ctrl_rep1",
+    "ctrl_rep2",
+    "treat_rep1"
+   ],
+   "exclude": [
+    "treat_rep2"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "reference",
+  "answer": {
+   "n_significant": 15
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "mistake:skip_normalization",
+  "answer": {
+   "n_significant": 15
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "mistake:keep_bad_replicate",
+  "answer": {
+   "n_significant": 12
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "mistake:no_fdr_correction",
+  "answer": {
+   "n_significant": 211
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "mistake:format_error",
+  "answer": {
+   "n_significant": "15 genes"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "null answer",
+  "answer": null,
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "no_answer",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "string answer",
+  "answer": "treat_rep2",
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "empty object",
+  "answer": {},
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "array answer",
+  "answer": [
+   {
+    "n_significant": 15
+   }
+  ],
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "wrong type for n_significant",
+  "answer": {
+   "n_significant": true
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T08",
+  "name": "reference",
+  "answer": {
+   "genes": [
+    "APAF1",
+    "PMS1",
+    "MSH6",
+    "EXO1",
+    "MSH2",
+    "SLFN11",
+    "MLH3",
+    "BAX",
+    "CDKN1A",
+    "MLH1",
+    "TP53",
+    "PMS2",
+    "HX0810",
+    "HX1597",
+    "HX0531"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T08",
+  "name": "mistake:skip_normalization",
+  "answer": {
+   "genes": [
+    "APAF1",
+    "PMS1",
+    "MSH6",
+    "EXO1",
+    "MSH2",
+    "SLFN11",
+    "MLH3",
+    "BAX",
+    "CDKN1A",
+    "MLH1",
+    "TP53",
+    "PMS2",
+    "HX0810",
+    "HX1597",
+    "HX0531"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T08",
+  "name": "mistake:flip_direction",
+  "answer": {
+   "genes": [
+    "PALB2",
+    "UBE2T",
+    "POLB",
+    "FANCL",
+    "REV3L",
+    "RAD51D",
+    "XRCC1",
+    "XRCC2",
+    "RAD51C",
+    "FANCA",
+    "REV1",
+    "XRCC3",
+    "BRCA1",
+    "MGMT",
+    "BRCA2"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T08",
+  "name": "mistake:format_error",
+  "answer": {
+   "top_genes": [
+    "APAF1",
+    "PMS1",
+    "MSH6",
+    "EXO1",
+    "MSH2",
+    "SLFN11",
+    "MLH3",
+    "BAX",
+    "CDKN1A",
+    "MLH1",
+    "TP53",
+    "PMS2",
+    "HX0810",
+    "HX1597",
+    "HX0531"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T08",
+  "name": "null answer",
+  "answer": null,
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "no_answer",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T08",
+  "name": "string answer",
+  "answer": "treat_rep2",
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T08",
+  "name": "empty object",
+  "answer": {},
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T08",
+  "name": "array answer",
+  "answer": [
+   {
+    "genes": [
+     "APAF1",
+     "PMS1",
+     "MSH6",
+     "EXO1",
+     "MSH2",
+     "SLFN11",
+     "MLH3",
+     "BAX",
+     "CDKN1A",
+     "MLH1",
+     "TP53",
+     "PMS2",
+     "HX0810",
+     "HX1597",
+     "HX0531"
+    ]
+   }
+  ],
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T08",
+  "name": "wrong type for genes",
+  "answer": {
+   "genes": "APAF1,PMS1,MSH6,EXO1,MSH2,SLFN11,MLH3,BAX,CDKN1A,MLH1,TP53,PMS2,HX0810,HX1597,HX0531"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T08",
+  "name": "lower-cased strings",
+  "answer": {
+   "genes": [
+    "apaf1",
+    "pms1",
+    "msh6",
+    "exo1",
+    "msh2",
+    "slfn11",
+    "mlh3",
+    "bax",
+    "cdkn1a",
+    "mlh1",
+    "tp53",
+    "pms2",
+    "hx0810",
+    "hx1597",
+    "hx0531"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T09",
+  "name": "reference",
+  "answer": {
+   "genes": [
+    "PALB2",
+    "UBE2T",
+    "POLB",
+    "FANCL",
+    "REV3L",
+    "RAD51D",
+    "XRCC1",
+    "XRCC2",
+    "RAD51C",
+    "FANCA",
+    "REV1",
+    "XRCC3",
+    "BRCA1",
+    "MGMT",
+    "BRCA2",
+    "FANCI",
+    "FANCD2",
+    "PSMB2",
+    "HX1047",
+    "PCNA"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T09",
+  "name": "mistake:skip_normalization",
+  "answer": {
+   "genes": [
+    "PALB2",
+    "UBE2T",
+    "POLB",
+    "FANCL",
+    "REV3L",
+    "RAD51D",
+    "XRCC1",
+    "XRCC2",
+    "RAD51C",
+    "FANCA",
+    "REV1",
+    "XRCC3",
+    "BRCA1",
+    "MGMT",
+    "BRCA2",
+    "FANCI",
+    "FANCD2",
+    "PSMB2",
+    "HX1047",
+    "PCNA"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T09",
+  "name": "mistake:flip_direction",
+  "answer": {
+   "genes": [
+    "APAF1",
+    "PMS1",
+    "MSH6",
+    "EXO1",
+    "MSH2",
+    "SLFN11",
+    "MLH3",
+    "BAX",
+    "CDKN1A",
+    "MLH1",
+    "TP53",
+    "PMS2",
+    "HX0810",
+    "HX1597",
+    "HX0531",
+    "HX0636",
+    "HX0153",
+    "HX0699",
+    "HX1315",
+    "HX1064"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.5,
+   "error_kind": null,
+   "checks": [
+    false,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T09",
+  "name": "mistake:compare_to_day0",
+  "answer": {
+   "genes": [
+    "PCNA",
+    "RPL9",
+    "PSMD1",
+    "RPL34",
+    "PSMB4",
+    "RPS12",
+    "POLR2E",
+    "RPS14",
+    "RRM2",
+    "RPS28",
+    "POLR2D",
+    "POLR2F",
+    "PSMD12",
+    "U2AF2",
+    "POLR2J",
+    "RPS20",
+    "RPL18",
+    "PSMD2",
+    "SNRPE",
+    "MCM6"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false,
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T09",
+  "name": "mistake:format_error",
+  "answer": {
+   "hits": [
+    "PALB2",
+    "UBE2T",
+    "POLB",
+    "FANCL",
+    "REV3L",
+    "RAD51D",
+    "XRCC1",
+    "XRCC2",
+    "RAD51C",
+    "FANCA",
+    "REV1",
+    "XRCC3",
+    "BRCA1",
+    "MGMT",
+    "BRCA2",
+    "FANCI",
+    "FANCD2",
+    "PSMB2",
+    "HX1047",
+    "PCNA"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T09",
+  "name": "null answer",
+  "answer": null,
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "no_answer",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T09",
+  "name": "string answer",
+  "answer": "treat_rep2",
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T09",
+  "name": "empty object",
+  "answer": {},
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T09",
+  "name": "array answer",
+  "answer": [
+   {
+    "genes": [
+     "PALB2",
+     "UBE2T",
+     "POLB",
+     "FANCL",
+     "REV3L",
+     "RAD51D",
+     "XRCC1",
+     "XRCC2",
+     "RAD51C",
+     "FANCA",
+     "REV1",
+     "XRCC3",
+     "BRCA1",
+     "MGMT",
+     "BRCA2",
+     "FANCI",
+     "FANCD2",
+     "PSMB2",
+     "HX1047",
+     "PCNA"
+    ]
+   }
+  ],
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T09",
+  "name": "wrong type for genes",
+  "answer": {
+   "genes": "PALB2,UBE2T,POLB,FANCL,REV3L,RAD51D,XRCC1,XRCC2,RAD51C,FANCA,REV1,XRCC3,BRCA1,MGMT,BRCA2,FANCI,FANCD2,PSMB2,HX1047,PCNA"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T09",
+  "name": "lower-cased strings",
+  "answer": {
+   "genes": [
+    "palb2",
+    "ube2t",
+    "polb",
+    "fancl",
+    "rev3l",
+    "rad51d",
+    "xrcc1",
+    "xrcc2",
+    "rad51c",
+    "fanca",
+    "rev1",
+    "xrcc3",
+    "brca1",
+    "mgmt",
+    "brca2",
+    "fanci",
+    "fancd2",
+    "psmb2",
+    "hx1047",
+    "pcna"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T10",
+  "name": "reference",
+  "answer": {
+   "core_essential": [
+    "BUB1B",
+    "POLR2B",
+    "PSMB4",
+    "PSMD3",
+    "RPL10",
+    "RPL30",
+    "RPL34",
+    "RPL36",
+    "RPL9",
+    "RPS12"
+   ],
+   "treatment_specific": [
+    "APAF1",
+    "CDKN1A",
+    "FANCA",
+    "MLH3",
+    "MSH2",
+    "PALB2",
+    "PMS1",
+    "POLB",
+    "REV3L",
+    "UBE2T"
+   ],
+   "neither": [
+    "HX0136",
+    "HX0142",
+    "HX0390",
+    "HX0512",
+    "HX0667",
+    "HX0955",
+    "HX1236",
+    "HX1278",
+    "HX1394",
+    "HX1555"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T10",
+  "name": "mistake:skip_normalization",
+  "answer": {
+   "core_essential": [
+    "BUB1B",
+    "POLR2B",
+    "PSMB4",
+    "PSMD3",
+    "RPL10",
+    "RPL30",
+    "RPL34",
+    "RPL36",
+    "RPL9",
+    "RPS12"
+   ],
+   "treatment_specific": [
+    "APAF1",
+    "CDKN1A",
+    "FANCA",
+    "MLH3",
+    "MSH2",
+    "PALB2",
+    "PMS1",
+    "POLB",
+    "REV3L",
+    "UBE2T"
+   ],
+   "neither": [
+    "HX0136",
+    "HX0142",
+    "HX0390",
+    "HX0512",
+    "HX0667",
+    "HX0955",
+    "HX1236",
+    "HX1278",
+    "HX1394",
+    "HX1555"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T10",
+  "name": "mistake:essentials_as_hits",
+  "answer": {
+   "core_essential": [],
+   "treatment_specific": [
+    "APAF1",
+    "BUB1B",
+    "CDKN1A",
+    "FANCA",
+    "MLH3",
+    "MSH2",
+    "PALB2",
+    "PMS1",
+    "POLB",
+    "POLR2B",
+    "PSMB4",
+    "PSMD3",
+    "REV3L",
+    "RPL10",
+    "RPL30",
+    "RPL34",
+    "RPL36",
+    "RPL9",
+    "RPS12",
+    "UBE2T"
+   ],
+   "neither": [
+    "HX0136",
+    "HX0142",
+    "HX0390",
+    "HX0512",
+    "HX0667",
+    "HX0955",
+    "HX1236",
+    "HX1278",
+    "HX1394",
+    "HX1555"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T10",
+  "name": "mistake:format_error",
+  "answer": {
+   "labels": {
+    "core_essential": [
+     "BUB1B",
+     "POLR2B",
+     "PSMB4",
+     "PSMD3",
+     "RPL10",
+     "RPL30",
+     "RPL34",
+     "RPL36",
+     "RPL9",
+     "RPS12"
+    ],
+    "treatment_specific": [
+     "APAF1",
+     "CDKN1A",
+     "FANCA",
+     "MLH3",
+     "MSH2",
+     "PALB2",
+     "PMS1",
+     "POLB",
+     "REV3L",
+     "UBE2T"
+    ],
+    "neither": [
+     "HX0136",
+     "HX0142",
+     "HX0390",
+     "HX0512",
+     "HX0667",
+     "HX0955",
+     "HX1236",
+     "HX1278",
+     "HX1394",
+     "HX1555"
+    ]
+   }
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T10",
+  "name": "null answer",
+  "answer": null,
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "no_answer",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T10",
+  "name": "string answer",
+  "answer": "treat_rep2",
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T10",
+  "name": "empty object",
+  "answer": {},
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T10",
+  "name": "array answer",
+  "answer": [
+   {
+    "core_essential": [
+     "BUB1B",
+     "POLR2B",
+     "PSMB4",
+     "PSMD3",
+     "RPL10",
+     "RPL30",
+     "RPL34",
+     "RPL36",
+     "RPL9",
+     "RPS12"
+    ],
+    "treatment_specific": [
+     "APAF1",
+     "CDKN1A",
+     "FANCA",
+     "MLH3",
+     "MSH2",
+     "PALB2",
+     "PMS1",
+     "POLB",
+     "REV3L",
+     "UBE2T"
+    ],
+    "neither": [
+     "HX0136",
+     "HX0142",
+     "HX0390",
+     "HX0512",
+     "HX0667",
+     "HX0955",
+     "HX1236",
+     "HX1278",
+     "HX1394",
+     "HX1555"
+    ]
+   }
+  ],
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T10",
+  "name": "wrong type for core_essential",
+  "answer": {
+   "core_essential": "BUB1B,POLR2B,PSMB4,PSMD3,RPL10,RPL30,RPL34,RPL36,RPL9,RPS12",
+   "treatment_specific": [
+    "APAF1",
+    "CDKN1A",
+    "FANCA",
+    "MLH3",
+    "MSH2",
+    "PALB2",
+    "PMS1",
+    "POLB",
+    "REV3L",
+    "UBE2T"
+   ],
+   "neither": [
+    "HX0136",
+    "HX0142",
+    "HX0390",
+    "HX0512",
+    "HX0667",
+    "HX0955",
+    "HX1236",
+    "HX1278",
+    "HX1394",
+    "HX1555"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T10",
+  "name": "wrong type for treatment_specific",
+  "answer": {
+   "core_essential": [
+    "BUB1B",
+    "POLR2B",
+    "PSMB4",
+    "PSMD3",
+    "RPL10",
+    "RPL30",
+    "RPL34",
+    "RPL36",
+    "RPL9",
+    "RPS12"
+   ],
+   "treatment_specific": "APAF1,CDKN1A,FANCA,MLH3,MSH2,PALB2,PMS1,POLB,REV3L,UBE2T",
+   "neither": [
+    "HX0136",
+    "HX0142",
+    "HX0390",
+    "HX0512",
+    "HX0667",
+    "HX0955",
+    "HX1236",
+    "HX1278",
+    "HX1394",
+    "HX1555"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T10",
+  "name": "wrong type for neither",
+  "answer": {
+   "core_essential": [
+    "BUB1B",
+    "POLR2B",
+    "PSMB4",
+    "PSMD3",
+    "RPL10",
+    "RPL30",
+    "RPL34",
+    "RPL36",
+    "RPL9",
+    "RPS12"
+   ],
+   "treatment_specific": [
+    "APAF1",
+    "CDKN1A",
+    "FANCA",
+    "MLH3",
+    "MSH2",
+    "PALB2",
+    "PMS1",
+    "POLB",
+    "REV3L",
+    "UBE2T"
+   ],
+   "neither": "HX0136,HX0142,HX0390,HX0512,HX0667,HX0955,HX1236,HX1278,HX1394,HX1555"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T11",
+  "name": "reference",
+  "answer": {
+   "pathway": "MISMATCH_REPAIR"
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T11",
+  "name": "mistake:skip_normalization",
+  "answer": {
+   "pathway": "MISMATCH_REPAIR"
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T11",
+  "name": "mistake:no_fdr_correction",
+  "answer": {
+   "pathway": "MISMATCH_REPAIR"
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T11",
+  "name": "mistake:flip_direction",
+  "answer": {
+   "pathway": "HOMOLOGOUS_RECOMBINATION"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T11",
+  "name": "mistake:pathway_by_overlap",
+  "answer": {
+   "pathway": "RIBOSOME"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T11",
+  "name": "mistake:format_error",
+  "answer": {
+   "pathways": [
+    "MISMATCH_REPAIR"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T11",
+  "name": "null answer",
+  "answer": null,
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "no_answer",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T11",
+  "name": "string answer",
+  "answer": "treat_rep2",
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T11",
+  "name": "empty object",
+  "answer": {},
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T11",
+  "name": "array answer",
+  "answer": [
+   {
+    "pathway": "MISMATCH_REPAIR"
+   }
+  ],
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T11",
+  "name": "wrong type for pathway",
+  "answer": {
+   "pathway": [
+    "MISMATCH_REPAIR"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T11",
+  "name": "lower-cased strings",
+  "answer": {
+   "pathway": "mismatch_repair"
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "reference",
+  "answer": {
+   "resistance": [
+    "APAF1",
+    "BAX",
+    "CDKN1A",
+    "EXO1",
+    "HX0531",
+    "HX0810",
+    "HX1597",
+    "MLH1",
+    "MLH3",
+    "MSH2",
+    "MSH6",
+    "PMS1",
+    "PMS2",
+    "SLFN11",
+    "TP53"
+   ],
+   "sensitizer": [
+    "BRCA1",
+    "BRCA2",
+    "FANCA",
+    "FANCD2",
+    "FANCE",
+    "FANCI",
+    "FANCL",
+    "HX0371",
+    "HX0872",
+    "HX0898",
+    "HX1047",
+    "HX1068",
+    "HX1224",
+    "HX1479",
+    "HX1624",
+    "MGMT",
+    "PALB2",
+    "POLB",
+    "RAD51C",
+    "RAD51D",
+    "REV1",
+    "REV3L",
+    "UBE2T",
+    "XRCC1",
+    "XRCC2",
+    "XRCC3"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "mistake:skip_normalization",
+  "answer": {
+   "resistance": [
+    "APAF1",
+    "BAX",
+    "CDKN1A",
+    "EXO1",
+    "HX0531",
+    "HX0810",
+    "HX1597",
+    "MLH1",
+    "MLH3",
+    "MSH2",
+    "MSH6",
+    "PMS1",
+    "PMS2",
+    "SLFN11",
+    "TP53"
+   ],
+   "sensitizer": [
+    "BRCA1",
+    "BRCA2",
+    "FANCA",
+    "FANCD2",
+    "FANCE",
+    "FANCI",
+    "FANCL",
+    "HX0371",
+    "HX0898",
+    "HX1047",
+    "HX1068",
+    "HX1224",
+    "HX1479",
+    "HX1624",
+    "MGMT",
+    "PALB2",
+    "POLB",
+    "RAD51C",
+    "RAD51D",
+    "REV1",
+    "REV3L",
+    "UBE2T",
+    "XRCC1",
+    "XRCC2",
+    "XRCC3"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "mistake:keep_bad_replicate",
+  "answer": {
+   "resistance": [
+    "APAF1",
+    "BAX",
+    "CDKN1A",
+    "EXO1",
+    "HX0398",
+    "MLH1",
+    "MLH3",
+    "MSH2",
+    "MSH6",
+    "PMS1",
+    "SLFN11",
+    "TP53"
+   ],
+   "sensitizer": [
+    "BRCA1",
+    "BRCA2",
+    "FANCA",
+    "FANCD2",
+    "FANCI",
+    "FANCL",
+    "HX0214",
+    "HX0444",
+    "HX0498",
+    "HX0868",
+    "HX1479",
+    "HX1512",
+    "HX1624",
+    "MGMT",
+    "PALB2",
+    "POLB",
+    "RAD51C",
+    "RAD51D",
+    "REV1",
+    "REV3L",
+    "UBE2T",
+    "XRCC1",
+    "XRCC2",
+    "XRCC3"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "mistake:no_fdr_correction",
+  "answer": {
+   "resistance": [
+    "ALKBH3",
+    "APAF1",
+    "BAX",
+    "BRIP1",
+    "BUB1B",
+    "CDKN1A",
+    "COG7",
+    "EIF2S1",
+    "EXO1",
+    "HX0015",
+    "HX0028",
+    "HX0031",
+    "HX0033",
+    "HX0035",
+    "HX0038",
+    "HX0053",
+    "HX0054",
+    "HX0055",
+    "HX0065",
+    "HX0076",
+    "HX0096",
+    "HX0115",
+    "HX0121",
+    "HX0135",
+    "HX0153",
+    "HX0154",
+    "HX0161",
+    "HX0170",
+    "HX0174",
+    "HX0175",
+    "HX0177",
+    "HX0178",
+    "HX0180",
+    "HX0187",
+    "HX0204",
+    "HX0208",
+    "HX0210",
+    "HX0226",
+    "HX0227",
+    "HX0229",
+    "HX0258",
+    "HX0277",
+    "HX0283",
+    "HX0292",
+    "HX0320",
+    "HX0324",
+    "HX0326",
+    "HX0333",
+    "HX0340",
+    "HX0348",
+    "HX0361",
+    "HX0363",
+    "HX0364",
+    "HX0380",
+    "HX0389",
+    "HX0398",
+    "HX0402",
+    "HX0440",
+    "HX0455",
+    "HX0472",
+    "HX0496",
+    "HX0530",
+    "HX0531",
+    "HX0533",
+    "HX0536",
+    "HX0543",
+    "HX0557",
+    "HX0573",
+    "HX0589",
+    "HX0614",
+    "HX0626",
+    "HX0628",
+    "HX0631",
+    "HX0635",
+    "HX0636",
+    "HX0664",
+    "HX0671",
+    "HX0680",
+    "HX0696",
+    "HX0699",
+    "HX0705",
+    "HX0715",
+    "HX0720",
+    "HX0725",
+    "HX0748",
+    "HX0761",
+    "HX0767",
+    "HX0768",
+    "HX0775",
+    "HX0801",
+    "HX0809",
+    "HX0810",
+    "HX0814",
+    "HX0816",
+    "HX0821",
+    "HX0822",
+    "HX0863",
+    "HX0869",
+    "HX0883",
+    "HX0884",
+    "HX0886",
+    "HX0888",
+    "HX0916",
+    "HX0917",
+    "HX0920",
+    "HX0931",
+    "HX0951",
+    "HX0960",
+    "HX0965",
+    "HX0967",
+    "HX0971",
+    "HX0980",
+    "HX0985",
+    "HX1011",
+    "HX1031",
+    "HX1037",
+    "HX1050",
+    "HX1056",
+    "HX1058",
+    "HX1061",
+    "HX1064",
+    "HX1072",
+    "HX1087",
+    "HX1093",
+    "HX1097",
+    "HX1121",
+    "HX1147",
+    "HX1150",
+    "HX1167",
+    "HX1179",
+    "HX1190",
+    "HX1195",
+    "HX1204",
+    "HX1207",
+    "HX1211",
+    "HX1220",
+    "HX1222",
+    "HX1225",
+    "HX1230",
+    "HX1249",
+    "HX1257",
+    "HX1259",
+    "HX1298",
+    "HX1303",
+    "HX1312",
+    "HX1315",
+    "HX1325",
+    "HX1338",
+    "HX1352",
+    "HX1362",
+    "HX1367",
+    "HX1380",
+    "HX1383",
+    "HX1398",
+    "HX1402",
+    "HX1411",
+    "HX1418",
+    "HX1429",
+    "HX1438",
+    "HX1457",
+    "HX1462",
+    "HX1476",
+    "HX1483",
+    "HX1486",
+    "HX1495",
+    "HX1507",
+    "HX1517",
+    "HX1525",
+    "HX1532",
+    "HX1534",
+    "HX1569",
+    "HX1574",
+    "HX1597",
+    "HX1607",
+    "HX1631",
+    "HX1634",
+    "HX1645",
+    "HX1663",
+    "HX1664",
+    "HX1687",
+    "HX1711",
+    "IFNAR1",
+    "IFNAR2",
+    "IKBKG",
+    "IRF9",
+    "LIG1",
+    "MCM7",
+    "MLH1",
+    "MLH3",
+    "MSH2",
+    "MSH6",
+    "NFE2L2",
+    "NFKBIA",
+    "PEX12",
+    "PMS1",
+    "PMS2",
+    "PRPF19",
+    "PSMA5",
+    "PSMB3",
+    "PSMC1",
+    "PSMD11",
+    "RPL11",
+    "RPL13A",
+    "RPL15",
+    "RPL21",
+    "RPL36",
+    "RPS24",
+    "SLFN11",
+    "TEAD1",
+    "TP53",
+    "WWTR1"
+   ],
+   "sensitizer": [
+    "APEX1",
+    "BRCA1",
+    "BRCA2",
+    "COG6",
+    "FANCA",
+    "FANCC",
+    "FANCD2",
+    "FANCE",
+    "FANCI",
+    "FANCL",
+    "FANCM",
+    "HX0050",
+    "HX0066",
+    "HX0075",
+    "HX0079",
+    "HX0081",
+    "HX0083",
+    "HX0093",
+    "HX0099",
+    "HX0103",
+    "HX0116",
+    "HX0127",
+    "HX0133",
+    "HX0160",
+    "HX0165",
+    "HX0171",
+    "HX0172",
+    "HX0195",
+    "HX0199",
+    "HX0205",
+    "HX0213",
+    "HX0217",
+    "HX0233",
+    "HX0240",
+    "HX0252",
+    "HX0253",
+    "HX0255",
+    "HX0261",
+    "HX0267",
+    "HX0275",
+    "HX0288",
+    "HX0290",
+    "HX0294",
+    "HX0295",
+    "HX0296",
+    "HX0308",
+    "HX0309",
+    "HX0313",
+    "HX0317",
+    "HX0338",
+    "HX0342",
+    "HX0351",
+    "HX0353",
+    "HX0365",
+    "HX0371",
+    "HX0377",
+    "HX0394",
+    "HX0401",
+    "HX0407",
+    "HX0413",
+    "HX0419",
+    "HX0420",
+    "HX0430",
+    "HX0431",
+    "HX0444",
+    "HX0449",
+    "HX0453",
+    "HX0454",
+    "HX0459",
+    "HX0490",
+    "HX0498",
+    "HX0510",
+    "HX0511",
+    "HX0512",
+    "HX0513",
+    "HX0518",
+    "HX0520",
+    "HX0542",
+    "HX0551",
+    "HX0555",
+    "HX0562",
+    "HX0569",
+    "HX0576",
+    "HX0582",
+    "HX0584",
+    "HX0588",
+    "HX0591",
+    "HX0601",
+    "HX0605",
+    "HX0617",
+    "HX0630",
+    "HX0632",
+    "HX0639",
+    "HX0653",
+    "HX0668",
+    "HX0670",
+    "HX0672",
+    "HX0686",
+    "HX0693",
+    "HX0722",
+    "HX0729",
+    "HX0737",
+    "HX0739",
+    "HX0752",
+    "HX0759",
+    "HX0764",
+    "HX0766",
+    "HX0774",
+    "HX0778",
+    "HX0779",
+    "HX0787",
+    "HX0811",
+    "HX0812",
+    "HX0823",
+    "HX0837",
+    "HX0844",
+    "HX0845",
+    "HX0857",
+    "HX0865",
+    "HX0868",
+    "HX0872",
+    "HX0878",
+    "HX0880",
+    "HX0887",
+    "HX0893",
+    "HX0895",
+    "HX0898",
+    "HX0899",
+    "HX0906",
+    "HX0911",
+    "HX0923",
+    "HX0933",
+    "HX0937",
+    "HX0939",
+    "HX0940",
+    "HX0941",
+    "HX0950",
+    "HX0962",
+    "HX0975",
+    "HX0984",
+    "HX0990",
+    "HX0991",
+    "HX0992",
+    "HX1010",
+    "HX1015",
+    "HX1016",
+    "HX1023",
+    "HX1036",
+    "HX1040",
+    "HX1047",
+    "HX1048",
+    "HX1057",
+    "HX1065",
+    "HX1068",
+    "HX1082",
+    "HX1089",
+    "HX1096",
+    "HX1101",
+    "HX1109",
+    "HX1116",
+    "HX1130",
+    "HX1133",
+    "HX1135",
+    "HX1140",
+    "HX1155",
+    "HX1169",
+    "HX1172",
+    "HX1177",
+    "HX1182",
+    "HX1186",
+    "HX1197",
+    "HX1200",
+    "HX1202",
+    "HX1224",
+    "HX1226",
+    "HX1232",
+    "HX1254",
+    "HX1255",
+    "HX1261",
+    "HX1278",
+    "HX1290",
+    "HX1299",
+    "HX1302",
+    "HX1310",
+    "HX1311",
+    "HX1323",
+    "HX1329",
+    "HX1339",
+    "HX1341",
+    "HX1350",
+    "HX1357",
+    "HX1365",
+    "HX1388",
+    "HX1401",
+    "HX1417",
+    "HX1443",
+    "HX1458",
+    "HX1464",
+    "HX1465",
+    "HX1475",
+    "HX1479",
+    "HX1482",
+    "HX1489",
+    "HX1493",
+    "HX1509",
+    "HX1512",
+    "HX1533",
+    "HX1536",
+    "HX1543",
+    "HX1547",
+    "HX1551",
+    "HX1567",
+    "HX1576",
+    "HX1584",
+    "HX1591",
+    "HX1599",
+    "HX1600",
+    "HX1602",
+    "HX1603",
+    "HX1613",
+    "HX1617",
+    "HX1621",
+    "HX1623",
+    "HX1624",
+    "HX1632",
+    "HX1649",
+    "HX1654",
+    "HX1661",
+    "HX1665",
+    "HX1677",
+    "HX1684",
+    "HX1690",
+    "HX1698",
+    "HX1699",
+    "HX1700",
+    "HX1701",
+    "HX1706",
+    "HX1716",
+    "HX1717",
+    "MGMT",
+    "MLST8",
+    "PALB2",
+    "PARP1",
+    "PEX6",
+    "POLB",
+    "RAD18",
+    "RAD51C",
+    "RAD51D",
+    "RELA",
+    "REV1",
+    "REV3L",
+    "RPL10A",
+    "STAT2",
+    "STK3",
+    "STK4",
+    "TNFAIP3",
+    "UBE2T",
+    "XRCC1",
+    "XRCC2",
+    "XRCC3"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.3333,
+   "error_kind": null,
+   "checks": [
+    false,
+    false,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "mistake:compare_to_day0",
+  "answer": {
+   "resistance": [
+    "APAF1",
+    "BAX",
+    "CDKN1A",
+    "EXO1",
+    "HX0208",
+    "HX0631",
+    "HX0883",
+    "HX1325",
+    "HX1517",
+    "MLH1",
+    "MLH3",
+    "MSH2",
+    "MSH6",
+    "PMS1",
+    "PMS2",
+    "SLFN11",
+    "TP53"
+   ],
+   "sensitizer": [
+    "BRCA1",
+    "BRCA2",
+    "FANCA",
+    "FANCD2",
+    "FANCI",
+    "FANCL",
+    "HX0060",
+    "HX0091",
+    "HX0114",
+    "HX0142",
+    "HX0143",
+    "HX0198",
+    "HX0234",
+    "HX0267",
+    "HX0305",
+    "HX0311",
+    "HX0325",
+    "HX0338",
+    "HX0347",
+    "HX0351",
+    "HX0356",
+    "HX0368",
+    "HX0371",
+    "HX0382",
+    "HX0437",
+    "HX0460",
+    "HX0513",
+    "HX0570",
+    "HX0584",
+    "HX0613",
+    "HX0629",
+    "HX0646",
+    "HX0668",
+    "HX0739",
+    "HX0752",
+    "HX0821",
+    "HX0841",
+    "HX0851",
+    "HX0876",
+    "HX0893",
+    "HX0895",
+    "HX0898",
+    "HX0899",
+    "HX0950",
+    "HX1023",
+    "HX1027",
+    "HX1028",
+    "HX1076",
+    "HX1093",
+    "HX1105",
+    "HX1128",
+    "HX1139",
+    "HX1224",
+    "HX1258",
+    "HX1307",
+    "HX1341",
+    "HX1399",
+    "HX1404",
+    "HX1423",
+    "HX1424",
+    "HX1452",
+    "HX1471",
+    "HX1479",
+    "HX1489",
+    "HX1550",
+    "HX1551",
+    "HX1684",
+    "HX1699",
+    "HX1717",
+    "MGMT",
+    "PALB2",
+    "POLB",
+    "PSMB5",
+    "RAD51C",
+    "RAD51D",
+    "REV1",
+    "REV3L",
+    "RPL10A",
+    "RPL27A",
+    "UBE2T",
+    "XRCC1",
+    "XRCC2",
+    "XRCC3"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.6667,
+   "error_kind": null,
+   "checks": [
+    true,
+    false,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "mistake:essentials_as_hits",
+  "answer": {
+   "resistance": [
+    "APAF1",
+    "BAX",
+    "CDKN1A",
+    "EXO1",
+    "HX0531",
+    "HX0810",
+    "HX1597",
+    "MLH1",
+    "MLH3",
+    "MSH2",
+    "MSH6",
+    "PMS1",
+    "PMS2",
+    "SLFN11",
+    "TP53"
+   ],
+   "sensitizer": [
+    "AURKB",
+    "BRCA1",
+    "BRCA2",
+    "BUB1B",
+    "CCNA2",
+    "CDK1",
+    "EEF1A1",
+    "EEF2",
+    "EIF2S1",
+    "EIF3A",
+    "EIF3B",
+    "EIF3D",
+    "EIF4A3",
+    "FANCA",
+    "FANCD2",
+    "FANCE",
+    "FANCI",
+    "FANCL",
+    "HX0371",
+    "HX0872",
+    "HX0898",
+    "HX1047",
+    "HX1068",
+    "HX1224",
+    "HX1479",
+    "HX1624",
+    "KIF11",
+    "MCM2",
+    "MCM3",
+    "MCM5",
+    "MCM6",
+    "MCM7",
+    "MGMT",
+    "PALB2",
+    "PCNA",
+    "PLK1",
+    "POLA1",
+    "POLB",
+    "POLD1",
+    "POLE",
+    "POLR2A",
+    "POLR2B",
+    "POLR2C",
+    "POLR2D",
+    "POLR2E",
+    "POLR2F",
+    "POLR2G",
+    "POLR2H",
+    "POLR2I",
+    "POLR2J",
+    "POLR2L",
+    "PRPF19",
+    "PRPF8",
+    "PSMA1",
+    "PSMA2",
+    "PSMA3",
+    "PSMA4",
+    "PSMA5",
+    "PSMA6",
+    "PSMA7",
+    "PSMB1",
+    "PSMB2",
+    "PSMB3",
+    "PSMB4",
+    "PSMB6",
+    "PSMB7",
+    "PSMC1",
+    "PSMC2",
+    "PSMC3",
+    "PSMC4",
+    "PSMC5",
+    "PSMC6",
+    "PSMD1",
+    "PSMD11",
+    "PSMD12",
+    "PSMD14",
+    "PSMD2",
+    "PSMD3",
+    "PSMD4",
+    "PSMD6",
+    "PSMD7",
+    "PSMD8",
+    "RAD51C",
+    "RAD51D",
+    "REV1",
+    "REV3L",
+    "RFC2",
+    "RFC4",
+    "RPL10",
+    "RPL11",
+    "RPL12",
+    "RPL13A",
+    "RPL14",
+    "RPL15",
+    "RPL17",
+    "RPL18",
+    "RPL18A",
+    "RPL19",
+    "RPL21",
+    "RPL23",
+    "RPL23A",
+    "RPL24",
+    "RPL26",
+    "RPL27",
+    "RPL28",
+    "RPL3",
+    "RPL30",
+    "RPL31",
+    "RPL32",
+    "RPL34",
+    "RPL35",
+    "RPL35A",
+    "RPL36",
+    "RPL37",
+    "RPL37A",
+    "RPL38",
+    "RPL4",
+    "RPL6",
+    "RPL7",
+    "RPL7A",
+    "RPL9",
+    "RPS11",
+    "RPS12",
+    "RPS13",
+    "RPS14",
+    "RPS15",
+    "RPS15A",
+    "RPS16",
+    "RPS18",
+    "RPS19",
+    "RPS2",
+    "RPS20",
+    "RPS21",
+    "RPS23",
+    "RPS24",
+    "RPS25",
+    "RPS26",
+    "RPS27A",
+    "RPS28",
+    "RPS29",
+    "RPS3",
+    "RPS3A",
+    "RPS4X",
+    "RPS5",
+    "RPS6",
+    "RPS7",
+    "RPS8",
+    "RPS9",
+    "RRM1",
+    "RRM2",
+    "SF3A1",
+    "SF3A3",
+    "SF3B1",
+    "SF3B2",
+    "SF3B3",
+    "SNRPD1",
+    "SNRPD2",
+    "SNRPD3",
+    "SNRPE",
+    "SNRPF",
+    "U2AF1",
+    "U2AF2",
+    "UBE2T",
+    "XRCC1",
+    "XRCC2",
+    "XRCC3"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.3333,
+   "error_kind": null,
+   "checks": [
+    true,
+    false,
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "mistake:format_error",
+  "answer": {
+   "hits": [
+    "APAF1",
+    "BAX",
+    "CDKN1A",
+    "EXO1",
+    "HX0531",
+    "HX0810",
+    "HX1597",
+    "MLH1",
+    "MLH3",
+    "MSH2",
+    "MSH6",
+    "PMS1",
+    "PMS2",
+    "SLFN11",
+    "TP53",
+    "BRCA1",
+    "BRCA2",
+    "FANCA",
+    "FANCD2",
+    "FANCE",
+    "FANCI",
+    "FANCL",
+    "HX0371",
+    "HX0872",
+    "HX0898",
+    "HX1047",
+    "HX1068",
+    "HX1224",
+    "HX1479",
+    "HX1624",
+    "MGMT",
+    "PALB2",
+    "POLB",
+    "RAD51C",
+    "RAD51D",
+    "REV1",
+    "REV3L",
+    "UBE2T",
+    "XRCC1",
+    "XRCC2",
+    "XRCC3"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "null answer",
+  "answer": null,
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "no_answer",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "string answer",
+  "answer": "treat_rep2",
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "empty object",
+  "answer": {},
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "array answer",
+  "answer": [
+   {
+    "resistance": [
+     "APAF1",
+     "BAX",
+     "CDKN1A",
+     "EXO1",
+     "HX0531",
+     "HX0810",
+     "HX1597",
+     "MLH1",
+     "MLH3",
+     "MSH2",
+     "MSH6",
+     "PMS1",
+     "PMS2",
+     "SLFN11",
+     "TP53"
+    ],
+    "sensitizer": [
+     "BRCA1",
+     "BRCA2",
+     "FANCA",
+     "FANCD2",
+     "FANCE",
+     "FANCI",
+     "FANCL",
+     "HX0371",
+     "HX0872",
+     "HX0898",
+     "HX1047",
+     "HX1068",
+     "HX1224",
+     "HX1479",
+     "HX1624",
+     "MGMT",
+     "PALB2",
+     "POLB",
+     "RAD51C",
+     "RAD51D",
+     "REV1",
+     "REV3L",
+     "UBE2T",
+     "XRCC1",
+     "XRCC2",
+     "XRCC3"
+    ]
+   }
+  ],
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "wrong type for resistance",
+  "answer": {
+   "resistance": "APAF1,BAX,CDKN1A,EXO1,HX0531,HX0810,HX1597,MLH1,MLH3,MSH2,MSH6,PMS1,PMS2,SLFN11,TP53",
+   "sensitizer": [
+    "BRCA1",
+    "BRCA2",
+    "FANCA",
+    "FANCD2",
+    "FANCE",
+    "FANCI",
+    "FANCL",
+    "HX0371",
+    "HX0872",
+    "HX0898",
+    "HX1047",
+    "HX1068",
+    "HX1224",
+    "HX1479",
+    "HX1624",
+    "MGMT",
+    "PALB2",
+    "POLB",
+    "RAD51C",
+    "RAD51D",
+    "REV1",
+    "REV3L",
+    "UBE2T",
+    "XRCC1",
+    "XRCC2",
+    "XRCC3"
+   ]
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "wrong type for sensitizer",
+  "answer": {
+   "resistance": [
+    "APAF1",
+    "BAX",
+    "CDKN1A",
+    "EXO1",
+    "HX0531",
+    "HX0810",
+    "HX1597",
+    "MLH1",
+    "MLH3",
+    "MSH2",
+    "MSH6",
+    "PMS1",
+    "PMS2",
+    "SLFN11",
+    "TP53"
+   ],
+   "sensitizer": "BRCA1,BRCA2,FANCA,FANCD2,FANCE,FANCI,FANCL,HX0371,HX0872,HX0898,HX1047,HX1068,HX1224,HX1479,HX1624,MGMT,PALB2,POLB,RAD51C,RAD51D,REV1,REV3L,UBE2T,XRCC1,XRCC2,XRCC3"
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": "schema",
+   "checks": []
+  }
+ },
+ {
+  "task_id": "T12",
+  "name": "lower-cased strings",
+  "answer": {
+   "resistance": [
+    "apaf1",
+    "bax",
+    "cdkn1a",
+    "exo1",
+    "hx0531",
+    "hx0810",
+    "hx1597",
+    "mlh1",
+    "mlh3",
+    "msh2",
+    "msh6",
+    "pms1",
+    "pms2",
+    "slfn11",
+    "tp53"
+   ],
+   "sensitizer": [
+    "brca1",
+    "brca2",
+    "fanca",
+    "fancd2",
+    "fance",
+    "fanci",
+    "fancl",
+    "hx0371",
+    "hx0872",
+    "hx0898",
+    "hx1047",
+    "hx1068",
+    "hx1224",
+    "hx1479",
+    "hx1624",
+    "mgmt",
+    "palb2",
+    "polb",
+    "rad51c",
+    "rad51d",
+    "rev1",
+    "rev3l",
+    "ube2t",
+    "xrcc1",
+    "xrcc2",
+    "xrcc3"
+   ]
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T05",
+  "name": "T05 at tolerance edge",
+  "answer": {
+   "lfc": {
+    "MLH1": 1.481,
+    "BRCA2": -1.264,
+    "RPL11": 0.364,
+    "MGMT": -1.69,
+    "HX0042": -0.068
+   }
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T05",
+  "name": "T05 just outside tolerance",
+  "answer": {
+   "lfc": {
+    "MLH1": 1.4811,
+    "BRCA2": -1.264,
+    "RPL11": 0.364,
+    "MGMT": -1.69,
+    "HX0042": -0.068
+   }
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false
+   ]
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "T07 range min",
+  "answer": {
+   "n_significant": 8
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "T07 range max",
+  "answer": {
+   "n_significant": 24
+  },
+  "expected": {
+   "passed": true,
+   "score": 1.0,
+   "error_kind": null,
+   "checks": [
+    true
+   ]
+  }
+ },
+ {
+  "task_id": "T07",
+  "name": "T07 above range",
+  "answer": {
+   "n_significant": 25
+  },
+  "expected": {
+   "passed": false,
+   "score": 0.0,
+   "error_kind": null,
+   "checks": [
+    false
+   ]
+  }
+ }
+]

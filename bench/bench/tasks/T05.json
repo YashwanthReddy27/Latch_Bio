@@ -1,0 +1,71 @@
+{
+ "id": "T05",
+ "title": "Normalized gene-level fold changes",
+ "category": "statistical_reasoning",
+ "difficulty": "medium",
+ "prompt": "For the genes MLH1, BRCA2, RPL11, MGMT, HX0042, report the gene-level log2 fold change of helixin treatment versus vehicle control. Use only samples that pass QC, account for differences in sequencing depth, compute sgRNA-level log2 fold changes, and summarize each gene by the median of its sgRNAs.",
+ "answer_schema": {
+  "type": "object",
+  "required": [
+   "lfc"
+  ],
+  "properties": {
+   "lfc": {
+    "type": "object",
+    "additionalProperties": {
+     "type": "number"
+    }
+   }
+  }
+ },
+ "grader": {
+  "checks": [
+   {
+    "id": "lfc",
+    "kind": "numeric_map",
+    "path": "lfc",
+    "values": {
+     "MLH1": 1.281,
+     "BRCA2": -1.264,
+     "RPL11": 0.364,
+     "MGMT": -1.69,
+     "HX0042": -0.068
+    },
+    "abs_tol": 0.2,
+    "label": "Gene LFCs"
+   }
+  ]
+ },
+ "grader_plain": "Each gene's LFC within \u00b10.2 of the reference. Total-count, CPM, median-of-ratios or non-targeting normalization with pseudocount 0.5\u20131 all land within 0.05; skipping normalization shifts values by ~+1, and keeping the bottlenecked replicate or comparing to day0 moves at least one gene out of tolerance.",
+ "traps": [
+  "2x depth difference between arms",
+  "bottlenecked replicate",
+  "comparing against day0 instead of vehicle"
+ ],
+ "milestones": [
+  "load",
+  "qc_coverage",
+  "exclude_bad",
+  "normalize",
+  "lfc",
+  "submit"
+ ],
+ "context": "You are analyzing a pooled CRISPR knockout screen. The workspace contains raw sgRNA read counts (counts.tsv), a sample sheet, gene sets and a short design document (design.md). Read design.md first.",
+ "inputs": [
+  "counts.tsv",
+  "samples.tsv",
+  "pathways.gmt",
+  "common_essentials.txt",
+  "design.md"
+ ],
+ "reference_answer": {
+  "lfc": {
+   "MLH1": 1.281,
+   "BRCA2": -1.264,
+   "RPL11": 0.364,
+   "MGMT": -1.69,
+   "HX0042": -0.068
+  }
+ },
+ "ground_truth": {}
+}

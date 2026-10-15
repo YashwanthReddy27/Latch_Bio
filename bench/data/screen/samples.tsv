@@ -1,0 +1,7 @@
+sample	condition	replicate	timepoint
+plasmid	plasmid	1	library
+day0	day0	1	day0
+treat_rep1	helixin	1	day14
+treat_rep2	helixin	2	day14
+ctrl_rep1	vehicle	1	day14
+ctrl_rep2	vehicle	2	day14

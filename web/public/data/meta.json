@@ -1,0 +1,1 @@
+{"generated_at":"2026-10-15T13:58:37Z","n_trajectories":312,"n_configs":6,"n_tasks":12,"n_failures":132,"n_real":0,"real_models":[],"judge":{"n_labeled":0,"models":[]},"n_plots":6,"dataset":{"genes":2000,"guides_per_gene":4,"non_targeting":200,"samples":6,"seed":20261014}}

@@ -1,0 +1,82 @@
+{
+ "id": "T06",
+ "title": "Replicate handling",
+ "category": "statistical_reasoning",
+ "difficulty": "medium",
+ "prompt": "Assess agreement between the four endpoint samples (treat_rep1, treat_rep2, ctrl_rep1, ctrl_rep2) and decide which to keep for the treatment-vs-control comparison. Report the samples to keep and the samples to exclude.",
+ "answer_schema": {
+  "type": "object",
+  "required": [
+   "keep",
+   "exclude"
+  ],
+  "properties": {
+   "keep": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   },
+   "exclude": {
+    "type": "array",
+    "items": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "grader": {
+  "checks": [
+   {
+    "id": "keep",
+    "kind": "set_equal",
+    "path": "keep",
+    "values": [
+     "ctrl_rep1",
+     "ctrl_rep2",
+     "treat_rep1"
+    ],
+    "label": "Keep"
+   },
+   {
+    "id": "exclude",
+    "kind": "set_equal",
+    "path": "exclude",
+    "values": [
+     "treat_rep2"
+    ],
+    "label": "Exclude"
+   }
+  ]
+ },
+ "grader_plain": "Both sets must match exactly: keep treat_rep1, ctrl_rep1, ctrl_rep2; exclude treat_rep2.",
+ "traps": [
+  "Keeping every replicate 'for power'"
+ ],
+ "milestones": [
+  "load",
+  "qc_coverage",
+  "qc_replicates",
+  "exclude_bad",
+  "submit"
+ ],
+ "context": "You are analyzing a pooled CRISPR knockout screen. The workspace contains raw sgRNA read counts (counts.tsv), a sample sheet, gene sets and a short design document (design.md). Read design.md first.",
+ "inputs": [
+  "counts.tsv",
+  "samples.tsv",
+  "pathways.gmt",
+  "common_essentials.txt",
+  "design.md"
+ ],
+ "reference_answer": {
+  "keep": [
+   "ctrl_rep1",
+   "ctrl_rep2",
+   "treat_rep1"
+  ],
+  "exclude": [
+   "treat_rep2"
+  ]
+ },
+ "ground_truth": {}
+}

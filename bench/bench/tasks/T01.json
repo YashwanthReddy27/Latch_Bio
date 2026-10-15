@@ -1,0 +1,63 @@
+{
+ "id": "T01",
+ "title": "Zero-count guides",
+ "category": "qc",
+ "difficulty": "easy",
+ "prompt": "How many sgRNAs have zero reads in the plasmid sample, and how many sgRNAs have zero reads in every sample?",
+ "answer_schema": {
+  "type": "object",
+  "required": [
+   "zero_in_plasmid",
+   "zero_in_all"
+  ],
+  "properties": {
+   "zero_in_plasmid": {
+    "type": "integer"
+   },
+   "zero_in_all": {
+    "type": "integer"
+   }
+  }
+ },
+ "grader": {
+  "checks": [
+   {
+    "id": "zero_in_plasmid",
+    "kind": "exact",
+    "path": "zero_in_plasmid",
+    "value": 40,
+    "label": "Zero in plasmid"
+   },
+   {
+    "id": "zero_in_all",
+    "kind": "exact",
+    "path": "zero_in_all",
+    "value": 40,
+    "label": "Zero in all samples"
+   }
+  ]
+ },
+ "grader_plain": "Both counts must match exactly. 'Zero in every sample' means the row sum across all six samples is 0, not a zero in any one sample.",
+ "traps": [
+  "'every sample' vs 'any sample'"
+ ],
+ "milestones": [
+  "load",
+  "submit"
+ ],
+ "context": "You are analyzing a pooled CRISPR knockout screen. The workspace contains raw sgRNA read counts (counts.tsv), a sample sheet, gene sets and a short design document (design.md). Read design.md first.",
+ "inputs": [
+  "counts.tsv",
+  "samples.tsv",
+  "pathways.gmt",
+  "common_essentials.txt",
+  "design.md"
+ ],
+ "reference_answer": {
+  "zero_in_plasmid": 40,
+  "zero_in_all": 40
+ },
+ "ground_truth": {
+  "failed_synthesis_guides": 40
+ }
+}
